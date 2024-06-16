@@ -20,21 +20,25 @@ public class SubImageTiles {
     private static Path targetDirectory;
 
     public static void subImageTiles(String pathToImage) {
-        init(pathToImage);
-        cut();
-        copyInOriginalPNG(pathToImage);
+        if(init(pathToImage)){
+            cut();
+            copyInOriginalPNG(pathToImage);
+        } else {
+            Logger.info("Skipping image due to error: %s", pathToImage);
+        }
     }
 
-    private static void init(String pathToImage) {
+    private static boolean init(String pathToImage) {
         try {
             image = ImageIO.read(Paths.get(pathToImage).toFile());
         } catch (IOException e) {
             Logger.error("Fail @ reading the image PATH : %s", pathToImage);
+            return false;
         }
         if(image.getWidth() % TILE_SIZE != 0 || image.getHeight() % TILE_SIZE != 0){
             Logger.error("Fail @%s image size not dividable by tile size WIDTH : %d, HEIGHT : %d",
                     pathToImage, image.getWidth(), image.getHeight());
-            return;
+            return false;
         }
 
         int i = pathToImage.lastIndexOf('\\');
@@ -50,8 +54,11 @@ public class SubImageTiles {
                 Files.createDirectories(targetDirectory);
             } catch (IOException e) {
                 Logger.error("Fail @ creating folder PATH : %s", targetDirectory);
+                return false;
             }
         }
+
+        return true;
     }
 
     private static void cut() {
