@@ -14,8 +14,6 @@ import java.nio.file.StandardCopyOption;
 public class SubImageTiles {
     public final static String ORIGINAL_NAME = "/(original).png";
 
-    private final static int TILE_SIZE = 16;
-
     private static BufferedImage image;
     private static Path targetDirectory;
 
@@ -35,7 +33,7 @@ public class SubImageTiles {
             Logger.error("Fail @ reading the image PATH : %s", pathToImage);
             return false;
         }
-        if(image.getWidth() % TILE_SIZE != 0 || image.getHeight() % TILE_SIZE != 0){
+        if(image.getWidth() % SubImage.getTileSize() != 0 || image.getHeight() % SubImage.getTileSize() != 0){
             Logger.error("Fail @%s image size not dividable by tile size WIDTH : %d, HEIGHT : %d",
                     pathToImage, image.getWidth(), image.getHeight());
             return false;
@@ -62,15 +60,15 @@ public class SubImageTiles {
     }
 
     private static void cut() {
-        for(int y = 0; y < image.getHeight(); y = y + TILE_SIZE) {
-            for (int x = 0; x < image.getWidth(); x = x + TILE_SIZE) {
+        for(int y = 0; y < image.getHeight(); y = y + SubImage.getTileSize()) {
+            for (int x = 0; x < image.getWidth(); x = x + SubImage.getTileSize()) {
 
-                if (isTileEmpty(x, y, TILE_SIZE, TILE_SIZE)) {
+                if (isTileEmpty(x, y, SubImage.getTileSize(), SubImage.getTileSize())) {
                     continue;
                 }
 
                 //save tile in new image
-                BufferedImage newImage = new BufferedImage(TILE_SIZE, TILE_SIZE, BufferedImage.TYPE_INT_ARGB);
+                BufferedImage newImage = new BufferedImage(SubImage.getTileSize(), SubImage.getTileSize(), BufferedImage.TYPE_INT_ARGB);
                 for (int newX = 0; newX < newImage.getWidth(); newX++) {
                     for (int newY = 0; newY < newImage.getHeight(); newY++) {
                         newImage.setRGB(newX, newY, image.getRGB(x + newX, y + newY));
@@ -99,8 +97,8 @@ public class SubImageTiles {
 
     private static int calcPos(int x, int y, int width) {
         int pos = 0;
-        pos += (x / TILE_SIZE);
-        pos += (y / TILE_SIZE) * (width / TILE_SIZE);
+        pos += (x / SubImage.getTileSize());
+        pos += (y / SubImage.getTileSize()) * (width / SubImage.getTileSize());
         return pos;
     }
 

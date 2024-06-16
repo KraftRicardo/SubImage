@@ -25,7 +25,7 @@ public class ImportWaterTiles {
             for(File png : INPUT_FOLDER.listFiles((dir, name) -> name.endsWith(".png"))){
                 String filePath = png.toString();
                 Logger.info("Cutting: %s", filePath);
-                init(filePath);
+//                init(filePath); TODO enable when pathing issue fixed
             }
         }
     }
@@ -33,7 +33,9 @@ public class ImportWaterTiles {
     private static void init(String filePath) throws IOException {
         createSubImagesFolder(filePath);
         cutToSubImages(filePath);
-        SubImage.cutStatics(new File(targetDirectory.toString()), false, true, 0);
+
+//        TODO fix this
+//        SubImage.cutTiles(new File(targetDirectory.toString()), 0);
 
         Path animations = Paths.get(filePath.replace(".png", ""));
         if(!Files.exists(animations)) {

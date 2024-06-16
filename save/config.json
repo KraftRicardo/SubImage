@@ -1,0 +1,7 @@
+{
+    "animationFolder": "res\\animation",
+    "filterMode": 0,
+    "tileFolder": "res\\tiles",
+    "tileSize": 16,
+    "objectFolder": "res\\objects"
+}

@@ -1,6 +1,12 @@
 plugins {
     id 'java'
     id "io.freefair.lombok" version "6.5.1"
+    id "org.openjfx.javafxplugin" version "0.0.14"
+}
+
+javafx {
+    version = "19"
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.web', 'javafx.media'] // Include the necessary modules here
 }
 
 group 'org.example'
@@ -28,6 +34,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.json:org.json:chargebee-1.0")
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
