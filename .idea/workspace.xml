@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Made error handling more robust">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Added UI to the project. Still buggy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/ImportWaterTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/ImportWaterTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/SubImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/SubImageTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImageTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/save/config.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,28 +80,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EditorManager.executor": "Run",
-    "Application.Main (1).executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.SubImage.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kraft/IdeaProjects/SubImage/res/editor",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.17471264",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EditorManager.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SubImage.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kraft/IdeaProjects/SubImage/res/editor&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.17471264&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\editor" />
@@ -182,7 +177,8 @@
       <workItem from="1717713493697" duration="2050000" />
       <workItem from="1718057671640" duration="763000" />
       <workItem from="1718059070746" duration="752000" />
-      <workItem from="1718539135659" duration="16540000" />
+      <workItem from="1718539135659" duration="16601000" />
+      <workItem from="1718574461374" duration="358000" />
     </task>
     <task id="LOCAL-00001" summary="Made error handling more robust">
       <option name="closed" value="true" />
@@ -192,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718539777091</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added UI to the project. Still buggy">
+      <option name="closed" value="true" />
+      <created>1718571085402</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718571085402</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +215,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Made error handling more robust" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made error handling more robust" />
+    <MESSAGE value="Added UI to the project. Still buggy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added UI to the project. Still buggy" />
   </component>
 </project>
