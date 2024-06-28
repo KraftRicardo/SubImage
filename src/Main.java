@@ -1,4 +1,6 @@
 import editor.EditorManager;
+import importer.SubImage;
+
 
 public class Main {
     private final static int TARGET_FPS = 30;
@@ -6,14 +8,17 @@ public class Main {
 
     public static void main(String[] args) {
         EditorManager.init(args);
+
+        SubImage.init();
         try {
             // Wait for JavaFX to initialize
             EditorManager.latch.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
             return;
-        }
-        mainLoop();  // Start the main loop after initialization
+         }
+
+        mainLoop();
     }
 
     public static void mainLoop() {

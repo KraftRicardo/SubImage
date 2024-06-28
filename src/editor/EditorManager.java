@@ -10,7 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import java.io.File;
+import save.Config;
+
 import java.util.concurrent.CountDownLatch;
 
 public class EditorManager extends Application {
@@ -23,9 +24,6 @@ public class EditorManager extends Application {
         setUserAgentStylesheet(STYLESHEET_MODENA);
         stage = primaryStage;
         Platform.setImplicitExit(false);
-
-        // Load configuration
-        SubImage.loadConfig();
 
         // define root and mainWindowController
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/editor/main_window.fxml"));

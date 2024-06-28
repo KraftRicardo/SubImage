@@ -48,30 +48,6 @@ public class MainWindowController {
         animationsFolderPath.setText(SubImage.getAnimationFolderPath());
     }
 
-    public void cutAll(ActionEvent actionEvent) {
-        SubImage.cutAll();
-    }
-
-    public void cutTiles(ActionEvent actionEvent) {
-        SubImage.cutTiles();
-    }
-
-    public void cutObjects(ActionEvent actionEvent) {
-        SubImage.cutObjects();
-    }
-
-    public void cutAnimations(ActionEvent actionEvent) {
-        SubImage.cutAnimations();
-    }
-
-    private String selectFolderAndSetPath() {
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Select Folder");
-        Stage stage = (Stage) tilesFolderPath.getScene().getWindow();  // Assuming tilesFolderPath is in the same window
-        File selectedDirectory = directoryChooser.showDialog(stage);
-        return selectedDirectory != null ? selectedDirectory.getAbsolutePath() : null;
-    }
-
     public void setTilesFolder(ActionEvent actionEvent) {
         String path = selectFolderAndSetPath();
         if (path != null) {
@@ -94,5 +70,26 @@ public class MainWindowController {
             SubImage.setAnimationFolderPath(path);
             update();
         }
+    }
+
+    public void cutAll(ActionEvent actionEvent) {
+        SubImage.cutAll();
+    }
+    public void cutTiles(ActionEvent actionEvent) {
+        SubImage.cutTiles();
+    }
+    public void cutObjects(ActionEvent actionEvent) {
+        SubImage.cutObjects();
+    }
+    public void cutAnimations(ActionEvent actionEvent) {
+        SubImage.cutAnimations();
+    }
+
+    private String selectFolderAndSetPath() {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Select Folder");
+        Stage stage = (Stage) tilesFolderPath.getScene().getWindow();  // Assuming tilesFolderPath is in the same window
+        File selectedDirectory = directoryChooser.showDialog(stage);
+        return selectedDirectory != null ? selectedDirectory.getAbsolutePath() : null;
     }
 }
