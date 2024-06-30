@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SubImage:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Edit config">
+    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Added README">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editor/EditorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/EditorManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/SubImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,28 +84,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EditorManager.executor": "Run",
-    "Application.Main (1).executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.SubImage.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kraft/IdeaProjects/SubImage/res/save",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.17471264",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EditorManager.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SubImage.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SubImage [build].executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.RUN_ARTIFACT.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kraft/IdeaProjects/SubImage/out/artifacts/SubImage_jar/SubImage.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\save" />
@@ -114,8 +118,11 @@
       <recent name="C:\Users\Ricardo\Documents\Pokemon Projekt\SubImage\src\importing" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\README_figures" />
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage" />
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\objects" />
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\editor\images" />
-      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\objects" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="util" />
@@ -145,13 +152,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SubImage [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="RUN_ARTIFACT" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SubImage_jar/SubImage.jar" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\kraft\.jdks\javafx-sdk-22.0.1\lib&quot; --add-modules=javafx.controls,javafx.fxml --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\kraft\IdeaProjects\SubImage" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.EditorManager" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.SubImage [build]" />
+      <item itemvalue="JAR Application.RUN_ARTIFACT" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.SubImage [build]" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.EditorManager" />
       </list>
@@ -184,7 +223,9 @@
       <workItem from="1718539135659" duration="16601000" />
       <workItem from="1718574461374" duration="358000" />
       <workItem from="1718583746085" duration="45000" />
-      <workItem from="1719605321322" duration="3028000" />
+      <workItem from="1719605321322" duration="3688000" />
+      <workItem from="1719697798712" duration="6646000" />
+      <workItem from="1719743978255" duration="2294000" />
     </task>
     <task id="LOCAL-00001" summary="Made error handling more robust">
       <option name="closed" value="true" />
@@ -210,7 +251,23 @@
       <option name="project" value="LOCAL" />
       <updated>1718583767106</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Bug fix">
+      <option name="closed" value="true" />
+      <created>1719609752667</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719609752668</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added README">
+      <option name="closed" value="true" />
+      <created>1719744853543</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719744853543</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +288,8 @@
     <MESSAGE value="Made error handling more robust" />
     <MESSAGE value="Added UI to the project. Still buggy" />
     <MESSAGE value="Edit config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit config" />
+    <MESSAGE value="Bug fix" />
+    <MESSAGE value="Added README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added README" />
   </component>
 </project>
