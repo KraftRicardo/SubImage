@@ -2,15 +2,17 @@ plugins {
     id 'java'
     id "io.freefair.lombok" version "6.5.1"
     id "org.openjfx.javafxplugin" version "0.0.14"
+    id 'com.github.johnrengelman.shadow' version '8.1.1' // Needed for shadowjar
 }
 
 javafx {
     version = "19"
-    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.web', 'javafx.media'] // Include the necessary modules here
+    // Include the necessary modules here
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.web', 'javafx.media']
 }
 
 group 'org.example'
-version '1.0-SNAPSHOT'
+version '0.0.0.1'
 
 sourceSets {
     main {
@@ -19,12 +21,6 @@ sourceSets {
         }
         resources {
             srcDirs = ['res/']
-        }
-    }
-
-    test {
-        java {
-            srcDirs = ['test/']
         }
     }
 }
@@ -41,4 +37,28 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+// Custom task to set the gradle version
+task wrapperUpdate(type: Wrapper) {
+    gradleVersion = '8.8'
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+// Settings for the shadowjar build. Here you define the position of the main class holding the main function
+shadowJar {
+    getArchiveFileName().set("SubImage-${version}.jar")
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
 }

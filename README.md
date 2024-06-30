@@ -16,6 +16,9 @@
 
 ### Prerequisites
 
+For running the developement code in IntelliJ you need 2 SDK version for java. One you use for the code the other you 
+only for gradle (the reason is because gradle updates less frequently). For javaFX just get one decently new package.
+
 - **Java SDK v.21**: [Download Java 21](https://www.oracle.com/java/technologies/downloads/#java21)
 - **Java SDK v.15 for Gradle**: [Download Java 15](https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html)
 - **JavaFX v.22**: [Download JavaFX](https://gluonhq.com/products/javafx/)
@@ -28,6 +31,10 @@ To run the main application, you need to set additional VM options to specify th
 
 Adjust the path accordingly to where your JavaFX library is located.
 
-## Maintainers
+## Build
 
+We use shadowjar here. See here: https://imperceptiblethoughts.com/shadow/getting-started/. Also read the build.gradle 
+for more details.
+
+## Maintainers
 - [Ricardo Kraft](https://github.com/KraftRicardo)
