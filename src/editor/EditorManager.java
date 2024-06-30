@@ -26,7 +26,7 @@ public class EditorManager extends Application {
         Platform.setImplicitExit(false);
 
         // define root and mainWindowController
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/editor/main_window.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/window/main_window.fxml"));
         Parent root = loader.load();
         mainWindowController = loader.getController();
 
@@ -37,7 +37,7 @@ public class EditorManager extends Application {
         // define stage
         stage.setScene(scene);
         stage.setTitle("Editor - SubImage");
-        stage.getIcons().add(new Image("editor/images/32_greatball.png"));
+        stage.getIcons().add(new Image("window/images/32_greatball.png"));
         stage.setX(600);
         stage.setY(400);
 

@@ -1,7 +1,6 @@
 import editor.EditorManager;
 import importer.SubImage;
 
-
 public class Main {
     private final static int TARGET_FPS = 30;
     private final static long OPTIMAL_TIME = 1000 / TARGET_FPS;
