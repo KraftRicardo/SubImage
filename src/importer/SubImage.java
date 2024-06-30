@@ -10,7 +10,7 @@ import org.json.JSONObject;
 import java.io.*;
 
 public class SubImage {
-    private static final String CONFIG_FILE_PATH = "res/save/config.json";
+    private static final String CONFIG_FILE_PATH = "data/config.json";
 
     private static Config cfg;
 

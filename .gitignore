@@ -44,3 +44,4 @@ bin/
 ### Custom Folders ###
 res/input/*
 .idea/*
+distributions/*
