@@ -39,14 +39,11 @@ public class SubImageTiles {
             return false;
         }
 
-        int i = pathToImage.lastIndexOf('\\');
-        String name = "";
-        if (i > 0) {
-            name = pathToImage.substring(i);
-            name = name.substring(0, name.length() - 4);
-        }
+        Path path = Paths.get(pathToImage);
+        String name = path.getFileName().toString();
+        name = name.substring(0, name.lastIndexOf('.'));
+        targetDirectory = path.getParent().resolve(name);
 
-        targetDirectory = Paths.get(Paths.get(pathToImage).getParent() + name);
         if(!Files.exists(targetDirectory)) {
             try {
                 Files.createDirectories(targetDirectory);
