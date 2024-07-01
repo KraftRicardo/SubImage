@@ -33,15 +33,13 @@ public class SubImageObjects {
         }
     }
 
-    private static void createResultFolder(String pathToImage){
-        int i = pathToImage.lastIndexOf('\\');
-        String name = "";
-        if (i > 0) {
-            name = pathToImage.substring(i);
-            name = name.substring(0, name.length() - 4);
-        }
-        targetDirectory = Paths.get(Paths.get(pathToImage).getParent() + name);
-        if(!Files.exists(targetDirectory)) {
+    private static void createResultFolder(String pathToImage) {
+        Path path = Paths.get(pathToImage);
+        String name = path.getFileName().toString();
+        name = name.substring(0, name.lastIndexOf('.'));
+        targetDirectory = path.getParent().resolve(name);
+
+        if (!Files.exists(targetDirectory)) {
             try {
                 Files.createDirectories(targetDirectory);
             } catch (IOException e) {
