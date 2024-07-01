@@ -58,7 +58,7 @@ public class SubImageObjects {
     }
 
     // if filterOutBackgroundColor == true, then the pixel [0,0] has the backgroundcolor
-    public static void cut(String pathToImage, int filterOutBackgroundColor, boolean nameAfterPosition){
+    public static void cut(String pathToImage, int filterOutBackgroundColor, boolean nameAfterPosition) {
         BufferedImage image = null;
         try {
             image = ImageIO.read(Paths.get(pathToImage).toFile());
@@ -66,15 +66,19 @@ public class SubImageObjects {
             Logger.error("Fail @ reading the image PATH : %s", pathToImage);
         }
 
+        if (image == null) {
+            return;
+        }
+
         boolean[][] alreadyProcessed = new boolean[image.getWidth()][image.getHeight()];
         int counter = 0;
 
         backGroundColor = new Color(image.getRGB(0, 0), true);
-        backGroundColor2 = new Color(image.getRGB(image.getWidth()-1, image.getHeight()-1), true);
+        backGroundColor2 = new Color(image.getRGB(image.getWidth() - 1, image.getHeight() - 1), true);
 
-        for(int y = 0;y < image.getHeight();y++) {
-            for(int x = 0;x < image.getWidth();x++) {
-                if(alreadyProcessed[x][y] || isNotPartOfNewImage(x, y, image, filterOutBackgroundColor)) {
+        for (int y = 0; y < image.getHeight(); y++) {
+            for (int x = 0; x < image.getWidth(); x++) {
+                if (alreadyProcessed[x][y] || isNotPartOfNewImage(x, y, image, filterOutBackgroundColor)) {
                     continue;
                 }
                 alreadyProcessed[x][y] = true;
@@ -87,7 +91,7 @@ public class SubImageObjects {
                 int maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE;
                 int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE;
 
-                while(!open.isEmpty()) {
+                while (!open.isEmpty()) {
                     Point p = open.remove(0);
 
                     maxX = Math.max(maxX, p.x);
@@ -95,30 +99,30 @@ public class SubImageObjects {
                     minX = Math.min(minX, p.x);
                     minY = Math.min(minY, p.y);
 
-                    Point[] neighbors = new Point[] {
+                    Point[] neighbors = new Point[]{
                             new Point(0, 1),
                             new Point(0, -1),
                             new Point(1, 0),
                             new Point(-1, 0)
                     };
 
-                    for(Point neighbor : neighbors) {
+                    for (Point neighbor : neighbors) {
                         int nx = p.x + neighbor.x;
                         int ny = p.y + neighbor.y;
 
                         if (!isNotPartOfNewImage(nx, ny, image, filterOutBackgroundColor) && !connected[nx][ny]) {
-                            open.add(new Point(nx , ny));
+                            open.add(new Point(nx, ny));
                             alreadyProcessed[nx][ny] = true;
                             connected[nx][ny] = true;
                         }
                     }
                 }
 
-                //save
+                // save
                 BufferedImage newImage = new BufferedImage(maxX - minX + 1, maxY - minY + 1, BufferedImage.TYPE_INT_ARGB);
-                for(int newX = 0;newX < newImage.getWidth();newX++) {
-                    for(int newY = 0;newY < newImage.getHeight();newY++) {
-                        if(image.getRGB(minX + newX, minY + newY) != image.getRGB(0, 0)){
+                for (int newX = 0; newX < newImage.getWidth(); newX++) {
+                    for (int newY = 0; newY < newImage.getHeight(); newY++) {
+                        if (image.getRGB(minX + newX, minY + newY) != image.getRGB(0, 0)) {
                             newImage.setRGB(newX, newY, image.getRGB(minX + newX, minY + newY));
                         }
                     }
@@ -126,7 +130,7 @@ public class SubImageObjects {
 
                 try {
                     String name;
-                    if(nameAfterPosition){
+                    if (nameAfterPosition) {
                         name = minX + "_" + minY + ".png";
                     } else {
                         name = "" + counter++ + ".png";
@@ -136,7 +140,7 @@ public class SubImageObjects {
                     Logger.error("Fail @ writing the image PATH : %s", targetDirectory.resolve((counter++) + ".png"));
                 }
             }
-            if(jump10PixelsPerRow){
+            if (jump10PixelsPerRow) {
                 y += 9;
             }
         }
