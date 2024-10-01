@@ -2,8 +2,8 @@ import editor.EditorManager;
 import importer.SubImage;
 
 public class Main {
-    private final static int TARGET_FPS = 30;
-    private final static long OPTIMAL_TIME = 1000 / TARGET_FPS;
+    final static int TARGET_FPS = 30;
+    final static long OPTIMAL_TIME = 1000 / TARGET_FPS;
 
     public static void main(String[] args) {
         EditorManager.init(args);

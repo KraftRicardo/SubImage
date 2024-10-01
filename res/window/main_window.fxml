@@ -9,10 +9,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="editor.windows.MainWindowController">
+<VBox prefHeight="300.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="editor.windows.MainWindowController">
    <HBox>
       <children>
-         <VBox>
+         <VBox prefHeight="125.0" prefWidth="800.0">
             <children>
                <Label text="Cutters">
                   <font>
@@ -32,7 +32,7 @@
                            <Tooltip text="Path to folder where the images holding your tiles lie" />
                         </tooltip>
                      </Label>
-                     <Label fx:id="tilesFolderPath" prefHeight="25.0" prefWidth="350.0" text="tilesFolderPath" textFill="#0c46cd">
+                     <Label fx:id="tilesFolderPath" prefHeight="25.0" prefWidth="650.0" text="tilesFolderPath" textFill="#0c46cd">
                         <HBox.margin>
                            <Insets />
                         </HBox.margin>
@@ -65,7 +65,7 @@
                            <Tooltip text="Path to folder where the images holding your objects lie" />
                         </tooltip>
                      </Label>
-                     <Label fx:id="objectsFolderPath" prefHeight="25.0" prefWidth="350.0" text="objectsFolderPath" textFill="#0c46cd">
+                     <Label fx:id="objectsFolderPath" prefHeight="25.0" prefWidth="650.0" text="objectsFolderPath" textFill="#0c46cd">
                         <padding>
                            <Insets left="5.0" />
                         </padding>
@@ -95,7 +95,7 @@
                            <Tooltip text="Path to folder where the images holding your animations lie" />
                         </tooltip>
                      </Label>
-                     <Label fx:id="animationsFolderPath" prefHeight="25.0" prefWidth="350.0" text="animationsFolderPath" textFill="#0c46cd">
+                     <Label fx:id="animationsFolderPath" prefHeight="25.0" prefWidth="650.0" text="animationsFolderPath" textFill="#0c46cd">
                         <padding>
                            <Insets left="5.0" />
                         </padding>
@@ -115,9 +115,39 @@
                      </Button>
                   </children>
                </HBox>
+               <HBox>
+                  <children>
+                     <Label prefHeight="25.0" prefWidth="65.0" text="Water Tiles">
+                        <HBox.margin>
+                           <Insets left="5.0" />
+                        </HBox.margin>
+                        <tooltip>
+                           <Tooltip text="Path to folder where the images holding your animations lie" />
+                        </tooltip>
+                     </Label>
+                     <Label fx:id="waterTilesFolderPath" prefHeight="25.0" prefWidth="650.0" text="waterTilesFolderPath" textFill="#0c46cd">
+                        <padding>
+                           <Insets left="5.0" />
+                        </padding>
+                        <font>
+                           <Font name="System Italic" size="12.0" />
+                        </font>
+                     </Label>
+                     <Button fx:id="setWaterTilesFolder" onAction="#setWaterTilesFolder" text="...">
+                        <HBox.margin>
+                           <Insets left="5.0" />
+                        </HBox.margin>
+                     </Button>
+                     <Button fx:id="cutWaterTilesButton" onAction="#cutWaterTiles" text="Cut">
+                        <HBox.margin>
+                           <Insets left="5.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+               </HBox>
             </children>
          </VBox>
-         <Button fx:id="cutAllButton" onAction="#cutAll" prefHeight="75.0" prefWidth="75.0" text="Cut All">
+         <Button fx:id="cutAllButton" onAction="#cutAll" prefHeight="103.0" prefWidth="75.0" text="Cut All">
             <HBox.margin>
                <Insets left="5.0" top="25.0" />
             </HBox.margin>
@@ -141,7 +171,7 @@
          </HBox>
          <HBox>
             <children>
-               <Label prefHeight="25.0" prefWidth="65.0" text="Tilesize">
+               <Label prefHeight="25.0" prefWidth="200.0" text="Tilesize">
                   <tooltip>
                      <Tooltip text="Define the size of the tile squares. If the input image is not divisable by that number the cutting will no succeed." />
                   </tooltip></Label>
@@ -159,7 +189,7 @@
          </HBox>
          <HBox>
             <children>
-               <Label prefHeight="25.0" prefWidth="65.0" text="Filter Mode">
+               <Label prefHeight="25.0" prefWidth="200.0" text="Filter Mode">
                   <tooltip>
                      <Tooltip text="0: No filter, 1: filter (0,0) pixel color, 2: filter (width-1, height-1) pixel color" />
                   </tooltip></Label>
@@ -167,6 +197,26 @@
                   <padding>
                      <Insets left="5.0" />
                   </padding>
+               </TextField>
+            </children>
+            <VBox.margin>
+               <Insets left="5.0" />
+            </VBox.margin>
+         </HBox>
+         <HBox>
+            <children>
+               <Label prefHeight="25.0" prefWidth="200.0" text="Water Tile SubImage Height">
+                  <tooltip>
+                     <Tooltip text="Define the size of the tile squares. If the input image is not divisable by that number the cutting will no succeed." />
+                  </tooltip>
+               </Label>
+               <TextField fx:id="waterTileSubImageHeight" prefHeight="25.0" prefWidth="50.0" promptText="48">
+                  <padding>
+                     <Insets left="5.0" />
+                  </padding>
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
                </TextField>
             </children>
             <VBox.margin>
@@ -185,7 +235,7 @@
                <Insets left="5.0" />
             </VBox.margin>
          </Label>
-         <Label alignment="TOP_LEFT" prefHeight="150.0" prefWidth="600.0" text="No erros yet" textFill="#da0000" wrapText="true">
+         <Label alignment="TOP_LEFT" prefHeight="84.0" prefWidth="885.0" text="No erros yet" textFill="#da0000" wrapText="true">
             <VBox.margin>
                <Insets left="5.0" right="5.0" />
             </VBox.margin>

@@ -9,8 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Added README">
+    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Fixed object cutting 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/input/objects/Status_all.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/window/main_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/res/window/main_window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/editor/EditorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/EditorManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/importer/ImportWaterTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/ImportWaterTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/importer/SubImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/importer/SubImageAnimationSorter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/save/Config.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,16 +44,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="SubImage" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="SubImage" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="SubImage" type="f1a62948:ProjectNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
             </expand>
             <select />
@@ -91,18 +91,22 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.SubImage.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.SubImage [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SubImage [shadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SubImage [wrapperUpdate].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SubImage [wrapper].executor&quot;: &quot;Run&quot;,
     &quot;JAR Application.RUN_ARTIFACT.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.RUN_SHADOW.executor&quot;: &quot;Run&quot;,
     &quot;JAR Application.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kraft/IdeaProjects/SubImage/out/artifacts/SubImage_jar/SubImage.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kraft/IdeaProjects/SubImage/res/input/animation&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
@@ -111,18 +115,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\animation" />
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\objects" />
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\src\shell" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\save" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\editor" />
-      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\tiles" />
-      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\objects" />
-      <recent name="C:\Users\Ricardo\Documents\Pokemon Projekt\SubImage\src\importing" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\README_figures" />
-      <recent name="C:\Users\kraft\IdeaProjects\SubImage" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\objects" />
-      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input" />
-      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\editor\images" />
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\tiles" />
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\animation" />
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\distributions\0.0.0.1_windows" />
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\distributions" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="util" />
@@ -130,20 +134,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="EditorManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="editor.EditorManager" />
-      <module name="SubImage.main" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\kraft\.jdks\javafx-sdk-20.0.2\lib&quot; --add-modules=javafx.controls,javafx.fxml --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="editor.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SubImage.main" />
@@ -174,6 +164,72 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="SubImage [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="SubImage [wrapperUpdate]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="wrapperUpdate" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="SubImage [wrapper]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="wrapper" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="RUN_ARTIFACT" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SubImage_jar/SubImage.jar" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\kraft\.jdks\javafx-sdk-22.0.1\lib&quot; --add-modules=javafx.controls,javafx.fxml --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED" />
@@ -181,18 +237,29 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
+    <configuration name="RUN_SHADOW" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/SubImage-1.0-SNAPSHOT-all.jar" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\kraft\.jdks\javafx-sdk-22.0.1\lib&quot; --add-modules=javafx.controls,javafx.fxml --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\kraft\IdeaProjects\SubImage" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Application.EditorManager" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.SubImage [shadowJar]" />
+      <item itemvalue="Gradle.SubImage [wrapperUpdate]" />
+      <item itemvalue="Gradle.SubImage [wrapper]" />
       <item itemvalue="Gradle.SubImage [build]" />
       <item itemvalue="JAR Application.RUN_ARTIFACT" />
+      <item itemvalue="JAR Application.RUN_SHADOW" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.SubImage [shadowJar]" />
+        <item itemvalue="Gradle.SubImage [wrapperUpdate]" />
+        <item itemvalue="Gradle.SubImage [wrapper]" />
         <item itemvalue="Gradle.SubImage [build]" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.EditorManager" />
       </list>
     </recent_temporary>
   </component>
@@ -225,7 +292,24 @@
       <workItem from="1718583746085" duration="45000" />
       <workItem from="1719605321322" duration="3688000" />
       <workItem from="1719697798712" duration="6646000" />
-      <workItem from="1719743978255" duration="2294000" />
+      <workItem from="1719743978255" duration="3089000" />
+      <workItem from="1719774996400" duration="7193000" />
+      <workItem from="1719782293805" duration="900000" />
+      <workItem from="1719844498965" duration="3480000" />
+      <workItem from="1719868744948" duration="3780000" />
+      <workItem from="1725316775784" duration="846000" />
+      <workItem from="1725486998957" duration="204000" />
+      <workItem from="1725824810650" duration="762000" />
+      <workItem from="1726166279005" duration="18000" />
+      <workItem from="1726350436892" duration="977000" />
+      <workItem from="1726398099981" duration="25000" />
+      <workItem from="1726408087303" duration="1237000" />
+      <workItem from="1727122679476" duration="1487000" />
+      <workItem from="1727124712316" duration="630000" />
+      <workItem from="1727198776190" duration="599000" />
+      <workItem from="1727206857385" duration="2020000" />
+      <workItem from="1727814057905" duration="1609000" />
+      <workItem from="1727816572080" duration="5195000" />
     </task>
     <task id="LOCAL-00001" summary="Made error handling more robust">
       <option name="closed" value="true" />
@@ -267,7 +351,55 @@
       <option name="project" value="LOCAL" />
       <updated>1719744853543</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added missing files such as config, window etc.">
+      <option name="closed" value="true" />
+      <created>1719746656656</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1719746656656</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Got shadowjar building working">
+      <option name="closed" value="true" />
+      <created>1719777593829</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719777593829</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Made the build better">
+      <option name="closed" value="true" />
+      <created>1719782228143</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1719782228143</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed tile cutting">
+      <option name="closed" value="true" />
+      <created>1719872651693</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719872651693</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fixed object cutting">
+      <option name="closed" value="true" />
+      <created>1719873020838</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719873020838</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fixed object cutting 2">
+      <option name="closed" value="true" />
+      <created>1719873452466</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719873452466</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +422,12 @@
     <MESSAGE value="Edit config" />
     <MESSAGE value="Bug fix" />
     <MESSAGE value="Added README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added README" />
+    <MESSAGE value="Added missing files such as config, window etc." />
+    <MESSAGE value="Got shadowjar building working" />
+    <MESSAGE value="Made the build better" />
+    <MESSAGE value="Fixed tile cutting" />
+    <MESSAGE value="Fixed object cutting" />
+    <MESSAGE value="Fixed object cutting 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed object cutting 2" />
   </component>
 </project>

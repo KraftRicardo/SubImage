@@ -1,23 +1,20 @@
 package importer;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.json.JSONException;
 import save.Config;
 import util.Logger;
-import org.json.JSONObject;
 
 import java.io.*;
 
 public class SubImage {
-    private static final String CONFIG_FILE_PATH = "data/config.json";
+    static final String CONFIG_FILE_PATH = "data/config.json";
 
-    private static Config cfg;
+    static Config cfg;
 
     public static void cutAll() {
         cutTiles();
         cutObjects();
         cutAnimations();
+        cutWaterTiles();
     }
 
     public static void cutTiles() {
@@ -53,6 +50,17 @@ public class SubImage {
         }
     }
 
+    public static void cutWaterTiles() {
+        Logger.info("Cutting water tiles ...");
+        if (cfg.getWaterTilesFolder().isDirectory()) {
+            for (final File f : cfg.getWaterTilesFolder().listFiles((dir, name) -> name.endsWith(".png"))) {
+                String imagePath = f.getAbsolutePath();
+                Logger.info(imagePath);
+                ImportWaterTiles.subImageWaterTiles(imagePath, cfg.getWaterTileSubImageHeight());
+            }
+        }
+    }
+
     public static void init() {cfg = new Config(CONFIG_FILE_PATH);}
     public static void saveConfig() {cfg.saveValuesInJson(CONFIG_FILE_PATH);}
 
@@ -60,17 +68,17 @@ public class SubImage {
     public static String getObjectFolderPath() {
         return cfg.getObjectFolder().getPath();
     }
-    public static String getAnimationFolderPath() {
-        return cfg.getAnimationFolder().getPath();
-    }
+    public static String getAnimationFolderPath() {return cfg.getAnimationFolder().getPath();}
+    public static String getWaterTilesFolderPath() {return cfg.getWaterTilesFolder().getPath();}
     public static int getTileSize() {return cfg.getTileSize();}
     public static int getFilterMode() {return cfg.getFilterMode();}
+    public static int getWaterTileSubImageHeight() {return cfg.getWaterTileSubImageHeight();}
 
     public static void setTileFolderPath(String path) {cfg.setTileFolder(path);}
     public static void setObjectFolderPath(String path) {cfg.setObjectFolder(path);}
     public static void setAnimationFolderPath(String path) {cfg.setAnimationFolder(path);}
+    public static void setWaterTilesFolderPath(String path) {cfg.setWaterTilesFolder(path);}
     public static void setTileSize(int newSize) {cfg.setTileSize(newSize);}
     public static void setFilterMode(int newMode) {cfg.setFilterMode(newMode);}
-
-
+    public static void setWaterTileSubImageHeight(int newHeight) {cfg.setWaterTileSubImageHeight(newHeight);}
 }

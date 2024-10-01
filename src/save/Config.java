@@ -8,12 +8,15 @@ import util.Logger;
 
 import java.io.*;
 
+@Getter
 public class Config {
-    @Getter private File tileFolder;
-    @Getter private File objectFolder;
-    @Getter private File animationFolder;
-    @Getter @Setter private int tileSize;
-    @Getter @Setter private int filterMode;
+    File tileFolder;
+    File objectFolder;
+    File animationFolder;
+    File waterTilesFolder;
+    @Setter int tileSize;
+    @Setter int filterMode;
+    @Setter int waterTileSubImageHeight;
 
     public Config(String filePath){
         readValuesFromJson(filePath);
@@ -38,8 +41,10 @@ public class Config {
             tileFolder = new File(json.getString("tileFolder"));
             objectFolder = new File(json.getString("objectFolder"));
             animationFolder = new File(json.getString("animationFolder"));
+            waterTilesFolder = new File(json.getString("waterTilesFolder"));
             tileSize = json.getInt("tileSize");
             filterMode = json.getInt("filterMode");
+            waterTileSubImageHeight = json.getInt("waterTileSubImageHeight");
 
             Logger.info("Configuration loaded successfully.");
         } catch (IOException | JSONException e) {
@@ -53,8 +58,10 @@ public class Config {
             json.put("tileFolder", tileFolder.getPath());
             json.put("objectFolder", objectFolder.getPath());
             json.put("animationFolder", animationFolder.getPath());
+            json.put("waterTilesFolder", waterTilesFolder.getPath());
             json.put("tileSize", tileSize);
             json.put("filterMode", filterMode);
+            json.put("waterTileSubImageHeight", waterTileSubImageHeight);
 
             try (FileWriter file = new FileWriter(filePath)) {
                 file.write(json.toString(4)); // Using 4 for pretty printing
@@ -92,6 +99,15 @@ public class Config {
             Logger.info("Animation folder set to: " + path);
         } catch (Exception e) {
             Logger.error("Error setting animation folder to: " + path);
+        }
+    }
+
+    public void setWaterTilesFolder(String path) {
+        try {
+            waterTilesFolder = new File(path);
+            Logger.info("WaterTilesFolder folder set to: " + path);
+        } catch (Exception e) {
+            Logger.error("Error setting water-tiles folder to: " + path);
         }
     }
 

@@ -7,16 +7,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+
 import java.io.File;
 
 public class MainWindowController {
+    @FXML Label tilesFolderPath;
+    @FXML Label objectsFolderPath;
+    @FXML Label animationsFolderPath;
+    @FXML Label waterTilesFolderPath;
 
-    @FXML private Label tilesFolderPath;
-    @FXML private Label objectsFolderPath;
-    @FXML private Label animationsFolderPath;
-
-    @FXML private TextField tileSize;
-    @FXML private TextField filterMode;
+    @FXML TextField tileSize;
+    @FXML TextField filterMode;
+    @FXML TextField waterTileSubImageHeight;
 
     public void initialize() {
         // Listen for changes in tileSizeField
@@ -24,8 +26,7 @@ public class MainWindowController {
             try {
                 int newSize = Integer.parseInt(newValue);
                 SubImage.setTileSize(newSize);
-            } catch (NumberFormatException e) {
-                // Handle non-integer input if needed
+            } catch (NumberFormatException ignored) {
             }
         });
         tileSize.setText(String.valueOf(SubImage.getTileSize()));
@@ -35,17 +36,27 @@ public class MainWindowController {
             try {
                 int newMode = Integer.parseInt(newValue);
                 SubImage.setFilterMode(newMode);
-            } catch (NumberFormatException e) {
-                // Handle non-integer input if needed
+            } catch (NumberFormatException ignored) {
             }
         });
         filterMode.setText(String.valueOf(SubImage.getFilterMode()));
+
+        // Listen for changes in waterTileSubImageHeight
+        waterTileSubImageHeight.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                int newMode = Integer.parseInt(newValue);
+                SubImage.setWaterTileSubImageHeight(newMode);
+            } catch (NumberFormatException ignored) {
+            }
+        });
+        waterTileSubImageHeight.setText(String.valueOf(SubImage.getWaterTileSubImageHeight()));
     }
 
     public void update() {
         tilesFolderPath.setText(SubImage.getTileFolderPath());
         objectsFolderPath.setText(SubImage.getObjectFolderPath());
         animationsFolderPath.setText(SubImage.getAnimationFolderPath());
+        waterTilesFolderPath.setText(SubImage.getWaterTilesFolderPath());
     }
 
     public void setTilesFolder(ActionEvent actionEvent) {
@@ -72,9 +83,15 @@ public class MainWindowController {
         }
     }
 
-    public void cutAll(ActionEvent actionEvent) {
-        SubImage.cutAll();
+    public void setWaterTilesFolder(ActionEvent actionEvent) {
+        String path = selectFolderAndSetPath();
+        if (path != null) {
+            SubImage.setWaterTilesFolderPath(path);
+            update();
+        }
     }
+
+    public void cutAll(ActionEvent actionEvent) {SubImage.cutAll();}
     public void cutTiles(ActionEvent actionEvent) {
         SubImage.cutTiles();
     }
@@ -84,8 +101,11 @@ public class MainWindowController {
     public void cutAnimations(ActionEvent actionEvent) {
         SubImage.cutAnimations();
     }
+    public void cutWaterTiles(ActionEvent actionEvent) {
+        SubImage.cutWaterTiles();
+    }
 
-    private String selectFolderAndSetPath() {
+    String selectFolderAndSetPath() {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Select Folder");
         Stage stage = (Stage) tilesFolderPath.getScene().getWindow();  // Assuming tilesFolderPath is in the same window

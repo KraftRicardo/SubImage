@@ -30,13 +30,13 @@ public class EditorManager extends Application {
         mainWindowController = loader.getController();
 
         // define scene
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 900, 400);
 //        scene.getStylesheets().add("/editor/themes/darktheme.css");
 
         // define stage
         stage.setScene(scene);
         stage.setTitle("Editor - SubImage");
-        stage.getIcons().add(new Image("window/images/32_greatball.png"));
+        stage.getIcons().add(new Image("window/images/32_heart_ball.png"));
         stage.setX(600);
         stage.setY(400);
 
