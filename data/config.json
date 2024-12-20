@@ -1,7 +1,9 @@
 {
-    "animationFolder": "C:\\Users\\kraft\\IdeaProjects\\SubImage\\res\\input\\animation",
+    "waterTilesFolder": "C:\\Users\\Ricardo\\Documents\\Pokemon Drawings\\SubImage\\waterTiles",
+    "animationFolder": "C:\\Users\\Ricardo\\Documents\\Pokemon Drawings\\SubImage\\animation",
     "filterMode": 0,
-    "tileFolder": "C:\\Users\\kraft\\3D Objects",
+    "tileFolder": "C:\\Users\\Ricardo\\Documents\\Pokemon Drawings\\SubImage\\tiles",
     "tileSize": 16,
-    "objectFolder": "C:\\Users\\kraft\\IdeaProjects\\SubImage\\res\\input\\objects"
+    "objectFolder": "C:\\Users\\Ricardo\\Documents\\Pokemon Drawings\\SubImage\\objects",
+    "waterTileSubImageHeight": 48
 }

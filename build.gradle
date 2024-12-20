@@ -6,7 +6,7 @@ plugins {
 }
 
 javafx {
-    version = "19"
+    version = "22"
     // Include the necessary modules here
     modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.web', 'javafx.media']
 }
