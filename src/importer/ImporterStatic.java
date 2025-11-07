@@ -97,7 +97,8 @@ public class ImporterStatic {
         if(src.equals(INPUT_FOLDER_TILE)){
             SubImageTiles.subImageTiles(pathToImage);
         } else {
-            SubImageObjects.subImageObjects(pathToImage, 0, true);
+            // TODO make the last 2 parameters tracked by cfg
+            SubImageObjects.subImageObjects(pathToImage, 0, true, true);
         }
 
         if(!new File(pathToImage).delete()){

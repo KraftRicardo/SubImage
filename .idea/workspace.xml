@@ -9,18 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Fixed object cutting 2">
+    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Added logic to cut WaterTiles">
+      <change afterPath="$PROJECT_DIR$/res/README_figures/example-result.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/README_figures/example.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/res/input/objects/Status_all.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/window/main_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/res/window/main_window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/editor/EditorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/EditorManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/ImportWaterTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/ImportWaterTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/importer/ImporterStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/ImporterStatic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/importer/Indexing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/Indexing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/importer/SubImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/SubImageAnimationSorter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/save/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/save/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/importer/SubImageObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImageObjects.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,42 +85,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.EditorManager.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SubImage.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SubImage [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SubImage [shadowJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SubImage [wrapperUpdate].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SubImage [wrapper].executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.RUN_ARTIFACT.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.RUN_SHADOW.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kraft/IdeaProjects/SubImage/res/input/animation&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.EditorManager.executor": "Run",
+    "Application.Main (1).executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.SubImage.executor": "Run",
+    "Gradle.SubImage [build].executor": "Run",
+    "Gradle.SubImage [shadowJar].executor": "Run",
+    "Gradle.SubImage [wrapperUpdate].executor": "Run",
+    "Gradle.SubImage [wrapper].executor": "Run",
+    "JAR Application.RUN_ARTIFACT.executor": "Run",
+    "JAR Application.RUN_SHADOW.executor": "Run",
+    "JAR Application.Unnamed.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/kraft/IdeaProjects/SubImage/res/README_figures",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.1150748",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\README_figures" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\animation" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\objects" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\src\shell" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\save" />
-      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\editor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\objects" />
@@ -309,7 +310,30 @@
       <workItem from="1727198776190" duration="599000" />
       <workItem from="1727206857385" duration="2020000" />
       <workItem from="1727814057905" duration="1609000" />
-      <workItem from="1727816572080" duration="5195000" />
+      <workItem from="1727816572080" duration="5321000" />
+      <workItem from="1728672961819" duration="652000" />
+      <workItem from="1728724598211" duration="19000" />
+      <workItem from="1732999440184" duration="1540000" />
+      <workItem from="1733254748572" duration="39000" />
+      <workItem from="1733256745450" duration="1327000" />
+      <workItem from="1733265577451" duration="1606000" />
+      <workItem from="1733434892055" duration="1307000" />
+      <workItem from="1733567588140" duration="788000" />
+      <workItem from="1733596354093" duration="3430000" />
+      <workItem from="1733684164579" duration="1855000" />
+      <workItem from="1733765877794" duration="1635000" />
+      <workItem from="1733780251544" duration="1202000" />
+      <workItem from="1733852745197" duration="3426000" />
+      <workItem from="1733945754396" duration="6000" />
+      <workItem from="1750513264652" duration="1231000" />
+      <workItem from="1751556803489" duration="1242000" />
+      <workItem from="1751562250236" duration="2883000" />
+      <workItem from="1755980780967" duration="444000" />
+      <workItem from="1759774745775" duration="1906000" />
+      <workItem from="1759824545005" duration="600000" />
+      <workItem from="1759859110333" duration="46000" />
+      <workItem from="1759948960793" duration="519000" />
+      <workItem from="1762508134673" duration="782000" />
     </task>
     <task id="LOCAL-00001" summary="Made error handling more robust">
       <option name="closed" value="true" />
@@ -399,7 +423,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719873452466</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added logic to cut WaterTiles">
+      <option name="closed" value="true" />
+      <created>1727821893356</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727821893356</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +442,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -428,6 +472,7 @@
     <MESSAGE value="Fixed tile cutting" />
     <MESSAGE value="Fixed object cutting" />
     <MESSAGE value="Fixed object cutting 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed object cutting 2" />
+    <MESSAGE value="Added logic to cut WaterTiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added logic to cut WaterTiles" />
   </component>
 </project>

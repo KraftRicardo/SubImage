@@ -34,7 +34,8 @@ public class SubImage {
             for (final File f : cfg.getObjectFolder().listFiles((dir, name) -> name.endsWith(".png"))) {
                 String imagePath = f.getAbsolutePath();
                 Logger.info("Cutting: %s", imagePath);
-                SubImageObjects.subImageObjects(imagePath, cfg.getFilterMode(), true);
+                // TODO make the last 2 parameters tracked by cfg
+                SubImageObjects.subImageObjects(imagePath, cfg.getFilterMode(), false, true);
             }
         }
     }
@@ -45,7 +46,8 @@ public class SubImage {
             for (final File f : cfg.getAnimationFolder().listFiles((dir, name) -> name.endsWith(".png"))) {
                 String imagePath = f.getAbsolutePath();
                 Logger.info(imagePath);
-                SubImageObjects.subImageObjects(imagePath, cfg.getFilterMode(), false);
+                // TODO make the last 2 parameters tracked by cfg
+                SubImageObjects.subImageObjects(imagePath, cfg.getFilterMode(), false, false);
             }
         }
     }

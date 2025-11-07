@@ -30,7 +30,7 @@ public class Indexing {
     private static void cleanAndCutBaseImages(){
         for(String s : inputPNGNames){
             String path = inputMainFolder + "\\" + s;
-            SubImageObjects.cut(path, 1, true);
+            SubImageObjects.cutIntoComposites(path, true, 1);
         }
     }
 

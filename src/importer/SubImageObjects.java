@@ -23,13 +23,26 @@ public class SubImageObjects {
     private static Color backGroundColor2;
     private static Path targetDirectory;
 
+    private static boolean isCutRectanglesStyle = false;
+    private static int rectangleWidth = 64;
+    private static int rectangleHeight = 64;
+
     // cutStyle = true : name cuts after their position on the original image and create (original).png
-    // cutStyle = false : name after numbers and no (original).png
-    public static void subImageObjects(String pathToImage, int filterOutBackgroundColor, boolean cutStyle) {
-        createResultFolder(pathToImage);
-        cut(pathToImage, filterOutBackgroundColor, cutStyle);
-        if(cutStyle){
-            copyInOriginalPNG(pathToImage);
+    // nameAfterPixelPosition = false : name after pixel position in the original png and not (original).png
+    // cutRectanglesStyle: if true cut not by composite but into rectangles of size defined in the function "cutIntoRectangles"
+    public static void subImageObjects(String imagePath, int filterOutBackgroundColor, boolean nameAfterPixelPosition, boolean cutRectanglesStyle) {
+        createResultFolder(imagePath);
+
+        // Cut
+        if (cutRectanglesStyle) {
+            cutIntoRectangles(imagePath, nameAfterPixelPosition);
+        } else {
+            cutIntoComposites(imagePath, nameAfterPixelPosition, filterOutBackgroundColor);
+        }
+
+        // Add the original image to the result folder as orientation for the pixel positions
+        if (nameAfterPixelPosition) {
+            copyInOriginalPNG(imagePath);
         }
     }
 
@@ -57,8 +70,9 @@ public class SubImageObjects {
         }
     }
 
+    // Cuts into images with touching pixels
     // if filterOutBackgroundColor == true, then the pixel [0,0] has the backgroundcolor
-    public static void cut(String pathToImage, int filterOutBackgroundColor, boolean nameAfterPosition) {
+    public static void cutIntoComposites(String pathToImage, boolean nameAfterPosition, int filterOutBackgroundColor) {
         BufferedImage image = null;
         try {
             image = ImageIO.read(Paths.get(pathToImage).toFile());
@@ -146,24 +160,65 @@ public class SubImageObjects {
         }
     }
 
+    // if filterOutBackgroundColor == true, then the pixel [0,0] has the backgroundcolor
+    public static void cutIntoRectangles(String pathToImage, boolean nameAfterPixelPosition) {
+        final int rectangleWidth = 512;
+        final int rectangleHeight = 256;
+
+        BufferedImage image;
+        try {
+            image = ImageIO.read(Paths.get(pathToImage).toFile());
+        } catch (IOException e) {
+            Logger.error("Fail @ reading the image PATH : %s", pathToImage);
+            return;
+        }
+
+        if (image == null) {
+            Logger.error("Image could not be loaded: %s", pathToImage);
+            return;
+        }
+
+        int counter = 0;
+
+        for (int y = 0; y <= image.getHeight() - rectangleHeight; y += rectangleHeight) {
+            for (int x = 0; x <= image.getWidth() - rectangleWidth; x += rectangleWidth) {
+                BufferedImage newImage = new BufferedImage(rectangleWidth, rectangleHeight, BufferedImage.TYPE_INT_ARGB);
+
+                for (int newX = 0; newX < rectangleWidth; newX++) {
+                    for (int newY = 0; newY < rectangleHeight; newY++) {
+                        newImage.setRGB(newX, newY, image.getRGB(x + newX, y + newY));
+                    }
+                }
+
+                try {
+                    String name = nameAfterPixelPosition ? (x + "_" + y + ".png") : (counter++ + ".png");
+                    Path outputPath = targetDirectory.resolve(name);
+                    ImageIO.write(newImage, "PNG", outputPath.toFile());
+                } catch (IOException e) {
+                    Logger.error("Fail @ writing image to PATH: %s", targetDirectory.resolve(counter + ".png"));
+                }
+            }
+        }
+    }
+
     // 0 = false
     // 1 = filter (0,0) pixel color
     // 2 = filter (0,0) , (width-1, height-1) pixel color
     private static boolean isNotPartOfNewImage(int x, int y, BufferedImage image, int filterOutBackgroundColor) {
-        if(x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight()){
+        if (x < 0 || y < 0 || x >= image.getWidth() || y >= image.getHeight()) {
             return true;
         }
         Color color = new Color(image.getRGB(x, y), true);
 
-        if(filterOutBackgroundColor == 0){
+        if (filterOutBackgroundColor == 0) {
             return color.getAlpha() == 0;
         }
 
-        if(filterOutBackgroundColor == 1){
+        if (filterOutBackgroundColor == 1) {
             return color.getAlpha() == 0 || color.equals(backGroundColor);
         }
 
-        if(filterOutBackgroundColor == 2){
+        if (filterOutBackgroundColor == 2) {
             return color.getAlpha() == 0 || color.equals(backGroundColor) || color.equals(backGroundColor2);
         }
 

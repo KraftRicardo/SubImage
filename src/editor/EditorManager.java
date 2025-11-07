@@ -71,5 +71,3 @@ public class EditorManager extends Application {
         new Thread(() -> Application.launch(EditorManager.class, args)).start();
     }
 }
-
-// java jar
