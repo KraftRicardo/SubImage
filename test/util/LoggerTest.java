@@ -15,7 +15,7 @@ class LoggerTest {
     @BeforeEach
     void setup() throws Exception {
         // Create a "logs" folder inside the project
-        Path logDir = Path.of("src/test/resources/test-logs");
+        Path logDir = Path.of("test/resources/test-logs");
         if (!Files.exists(logDir)) {
             Files.createDirectories(logDir);
         }

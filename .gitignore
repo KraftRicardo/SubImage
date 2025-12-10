@@ -45,4 +45,4 @@ bin/
 res/input/*
 .idea/*
 distributions/*
-
+/test/resources/test-logs/
