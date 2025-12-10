@@ -9,13 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Added missing files">
+    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Refactor to support cfg with tileWidth and tileHeight">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/window/main_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/res/window/main_window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/SubImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/SubImageTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImageTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/save/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/save/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Logger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,42 +76,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.EditorManager.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main (1).executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SubImage.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SubImage [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SubImage [shadowJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SubImage [wrapperUpdate].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SubImage [wrapper].executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.RUN_ARTIFACT.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.RUN_SHADOW.executor&quot;: &quot;Run&quot;,
-    &quot;JAR Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kraft/IdeaProjects/SubImage/res/README_figures&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.EditorManager.executor": "Run",
+    "Application.Main (1).executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.SubImage.executor": "Run",
+    "Gradle.SubImage [build].executor": "Run",
+    "Gradle.SubImage [shadowJar].executor": "Run",
+    "Gradle.SubImage [wrapperUpdate].executor": "Run",
+    "Gradle.SubImage [wrapper].executor": "Run",
+    "JAR Application.RUN_ARTIFACT.executor": "Run",
+    "JAR Application.RUN_SHADOW.executor": "Run",
+    "JAR Application.Unnamed.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/kraft/IdeaProjects/SubImage/test/util",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.1150748",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kraft\IdeaProjects\SubImage\test\util" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\README_figures" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\animation" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\objects" />
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\src\shell" />
-      <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\save" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\input\objects" />
@@ -128,7 +125,7 @@
       <recent name="logging" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.LoggerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SubImage.main" />
@@ -136,28 +133,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="SubImage [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
     </configuration>
     <configuration name="SubImage [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -225,6 +200,21 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="LoggerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SubImage.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="util" />
+      <option name="MAIN_CLASS_NAME" value="util.LoggerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RUN_ARTIFACT" type="JarApplication">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SubImage_jar/SubImage.jar" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\kraft\.jdks\javafx-sdk-22.0.1\lib&quot; --add-modules=javafx.controls,javafx.fxml --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED" />
@@ -244,17 +234,17 @@
       <item itemvalue="Gradle.SubImage [shadowJar]" />
       <item itemvalue="Gradle.SubImage [wrapperUpdate]" />
       <item itemvalue="Gradle.SubImage [wrapper]" />
-      <item itemvalue="Gradle.SubImage [build]" />
       <item itemvalue="JAR Application.RUN_ARTIFACT" />
       <item itemvalue="JAR Application.RUN_SHADOW" />
+      <item itemvalue="JUnit.LoggerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoggerTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.SubImage [shadowJar]" />
         <item itemvalue="Gradle.SubImage [wrapperUpdate]" />
         <item itemvalue="Gradle.SubImage [wrapper]" />
-        <item itemvalue="Gradle.SubImage [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -331,7 +321,8 @@
       <workItem from="1763154215814" duration="20000" />
       <workItem from="1764003340335" duration="3000" />
       <workItem from="1764015843566" duration="146000" />
-      <workItem from="1765377737362" duration="2071000" />
+      <workItem from="1765377737362" duration="2280000" />
+      <workItem from="1765388131647" duration="307000" />
     </task>
     <task id="LOCAL-00001" summary="Made error handling more robust">
       <option name="closed" value="true" />
@@ -437,7 +428,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762509283135</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Refactor to support cfg with tileWidth and tileHeight">
+      <option name="closed" value="true" />
+      <created>1765379888740</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1765379888740</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,6 +479,7 @@
     <MESSAGE value="Fixed object cutting 2" />
     <MESSAGE value="Added logic to cut WaterTiles" />
     <MESSAGE value="Added missing files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added missing files" />
+    <MESSAGE value="Refactor to support cfg with tileWidth and tileHeight" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor to support cfg with tileWidth and tileHeight" />
   </component>
 </project>

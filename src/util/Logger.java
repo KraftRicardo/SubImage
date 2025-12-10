@@ -1,192 +1,184 @@
 package util;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
+/**
+ * Thread-safe Logger with colored console output, optional file logging, and multiple log levels (DEBUG, INFO, WARNING,
+ * ERROR). Supports injection of a PrintWriter for testing.
+ */
 public class Logger {
-	public static final int ERROR = 0;
-	public static final int WARNING = 1;
-	public static final int INFO = 2;
-	public static final int DEBUG = 3;
 
-	public static boolean loggingEnabled = false;
-	public static int logLevel = DEBUG;
+	/**
+	 * Log levels in increasing verbosity
+	 */
+	public enum LogLevel {ERROR, WARNING, INFO, DEBUG}
 
-	private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
-	static FileWriter fileWriter;
+	// ANSI escape codes for colors
+	private static final String RESET = "\u001B[0m";
+	private static final String RED = "\u001B[31m";
+	private static final String YELLOW = "\u001B[33m";
+	private static final String BLUE = "\u001B[34m";
+	private static final String GREEN = "\u001B[32m";
 
-	public synchronized static void init() {
-		if (fileWriter != null)
-			return;
+	@Setter @Getter private static boolean loggingEnabled = false;
+	@Setter @Getter private static LogLevel logLevel = LogLevel.DEBUG;
 
-		try {
-			Date date = new Date();
-			System.out.println("Logging started:   " + date.toString());
-			initFileWriter(date);
-		} catch (IOException e) {
-			System.err.println("Could not initialize logging!");
-		}
-	}
+	private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH:mm:ss");
+	private static final DateTimeFormatter FILE_NAME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
 
-	private synchronized static void initFileWriter(Date date) throws IOException {
-		if (loggingEnabled) {
-			fileWriter = new FileWriter(dateFormat.format(date) + ".log");
-			fileWriter.write("Logging started:   " + date.toString() + "\n");
-			fileWriter.flush();
-		}
-	}
-
-	public synchronized static void close() {
-		try {
-			if (fileWriter != null) {
-				fileWriter.write("Logging stopped");
-				fileWriter.flush();
-				fileWriter.close();
-			}
-		} catch (IOException e) {
-			System.err.println("Could not close log file!");
-		}
-
-//		System.out.println("Logging stopped");
-	}
-
-	public synchronized static void crash(String message, Object ... args){
-		if (args.length > 0) {
-			message = String.format(message, args);
-		}
-
-		crash(message, new RuntimeException());
-	}
-
-	public synchronized static void crash(String message, Exception e) {
-		error(message);
-		crash(e);
-	}
-
-	public synchronized static void crash(Exception e) {
-		if (logLevel >= ERROR) {
-			Date date = new Date();
-			String logString = "[CRASH] " + timeFormat.format(date) + " :   " + e.getCause() + "  " + e.getMessage() + "\n";
-			System.err.print(logString);
-
-			writeToLog(logString);
-			for (StackTraceElement element : e.getStackTrace()) {
-				logString = "[STACKTRACE]:\t\t" + element.toString() + "\n";
-				System.err.print(logString);
-				writeToLog(logString);
-			}
-			close();
-		}
-
-		System.exit(-1);
-	}
-
-	public synchronized static void debug(String string, Object... args) {
-		if (args.length > 0) {
-			string = String.format(string, args);
-		}
-
-		if (logLevel >= DEBUG) {
-			Date date = new Date();
-			String logString = "[DEBUG] " + timeFormat.format(date) + ":\t\t" + string + "\n";
-			System.out.print(logString);
-			writeToLog(logString);
-		}
-	}
-
-	public synchronized static void info(String string, Object... args) {
-		if (args.length > 0) {
-			string = String.format(string, args);
-		}
-		if (logLevel >= INFO) {
-			Date date = new Date();
-			String logString = "[INFO] " + timeFormat.format(date) + ":\t\t" + string + "\n";
-			System.out.print(logString);
-			writeToLog(logString);
-		}
-	}
-
-	public synchronized static void warning(String string, Object... args) {
-		if (args.length > 0) {
-			string = String.format(string, args);
-		}
-
-		if (logLevel >= WARNING) {
-			Date date = new Date();
-			String logString = "[WARNING] " + timeFormat.format(date) + ":\t\t" + string + "\n";
-			System.out.print(logString);
-			writeToLog(logString);
-		}
-	}
-
-	public synchronized static void error(String string, Object... args) {
-		if (args.length > 0) {
-			string = String.format(string, args);
-		}
-
-		if (logLevel >= ERROR) {
-			Date date = new Date();
-			String logString = "[ERROR] " + timeFormat.format(date) + ":\t\t" + string + "\n";
-			System.err.print(logString);
-			writeToLog(logString);
-		}
-	}
-
-	public synchronized static void error(Exception e) {
-		if (logLevel >= ERROR) {
-			Date date = new Date();
-			String logString = "[ERROR] " + timeFormat.format(date) + ":\t\t" + e.getMessage() + "\n";
-			System.err.print(logString);
-			writeToLog(logString);
-
-			for (StackTraceElement element : e.getStackTrace()) {
-				logString = "[STACKTRACE]:\t\t" + element.toString() + "\n";
-				System.err.print(logString);
-				writeToLog(logString);
-			}
-		}
-	}
-
-	public synchronized static void error(String string, Exception e) {
-		error(string);
-		error(e);
-	}
-
-
+	private static PrintWriter writer;
 	private static long lastFlush = 0;
 
-	private synchronized static void writeToLog(String logString) {
-		if (loggingEnabled) {
-			try {
-				fileWriter.write(logString);
-				if (System.currentTimeMillis() - lastFlush > 2000) {
-					fileWriter.flush();
-					lastFlush = System.currentTimeMillis();
-				}
-			} catch (IOException e) {
-				System.err.println("Could not write to log file!");
-			}
+	/**
+	 * Initializes the logger. If file logging is enabled, creates a timestamped log file.
+	 * Safe to call multiple times; does nothing if already initialized.
+	 */
+	public static synchronized void init(String dirPath) {
+		if (writer != null) {
+			return;
+		}
+
+		LocalDateTime now = LocalDateTime.now();
+		System.out.println("Logging started: " + now);
+
+		if (!loggingEnabled) {
+			return;
+		}
+
+		String fileName = dirPath + "/" + FILE_NAME_FORMAT.format(now) + ".log";
+		try {
+			writer = new PrintWriter(new FileWriter(fileName, true));
+			writer.println("Logging started: " + now);
+			writer.flush();
+		} catch (IOException e) {
+			System.err.println("Could not initialize log file: " + e.getMessage());
 		}
 	}
 
-	public synchronized static void enableLogging() {
-		loggingEnabled = true;
-	}
-
-	public synchronized static void disableLogging() {
-		loggingEnabled = false;
-	}
-
-	public static void setLogLevel(int level) {
-		logLevel = level;
-	}
-
-    public static void errorIf(boolean b, String msg, Object... args) {
-		if(b){
-			error(msg, args);
+	/**
+	 * Closes the logger and flushes any remaining data.
+	 */
+	public static synchronized void close() {
+		if (writer != null) {
+			writer.println("Logging stopped");
+			writer.flush();
+			writer.close();
+			writer = null;
 		}
-    }
+	}
+
+	/**
+	 * Resets the logger for testing or re-initialization.
+	 * Safely closes any existing writer.
+	 */
+	public static synchronized void reset() {
+		close();
+		lastFlush = 0;
+	}
+
+	public static synchronized void flush() {
+		if (writer != null) {
+			writer.flush();
+		}
+	}
+
+	/**
+	 * Injects a PrintWriter for logging (useful for testing).
+	 *
+	 * @param pw the PrintWriter to use for logging
+	 */
+	public static synchronized void setWriter(PrintWriter pw) {
+		writer = pw;
+	}
+
+	/**
+	 * Logs a debug message.
+	 */
+	public static void debug(String msg, Object... args) {
+		log(LogLevel.DEBUG, BLUE, msg, args);
+	}
+
+	/**
+	 * Logs an info message.
+	 */
+	public static void info(String msg, Object... args) {
+		log(LogLevel.INFO, GREEN, msg, args);
+	}
+
+	/**
+	 * Logs a warning message.
+	 */
+	public static void warning(String msg, Object... args) {
+		log(LogLevel.WARNING, YELLOW, msg, args);
+	}
+
+	/**
+	 * Logs an error message.
+	 */
+	public static void error(String msg, Object... args) {
+		log(LogLevel.ERROR, RED, msg, args);
+	}
+
+	/**
+	 * Logs an exception with stacktrace.
+	 */
+	public static void error(Exception e) {
+		error(e.getMessage());
+		for (StackTraceElement element : e.getStackTrace()) {
+			writeColored(RED, "[STACKTRACE] " + element);
+		}
+	}
+
+	/**
+	 * Logs a formatted message at the given level with color.
+	 */
+	private static synchronized void log(LogLevel level, String color, String msg, Object... args) {
+		if (logLevel.ordinal() < level.ordinal()) {
+			return;
+		}
+
+		String text = (args.length > 0) ? String.format(msg, args) : msg;
+		String timestamp = TIME_FORMAT.format(LocalDateTime.now());
+		String line = String.format("%s[%s %s] %s%s", color, level, timestamp, RESET, text);
+
+		writeColored(color, line);
+	}
+
+	/**
+	 * Writes a colored message to the console and optionally to the log file.
+	 */
+	private static synchronized void writeColored(String color, String line) {
+		if (color.equals(RED)) System.err.println(line);
+		else System.out.println(line);
+
+		writeToFile(line);
+	}
+
+	/**
+	 * Writes a message to the log file if enabled.
+	 * Will flush max every 2000 milliseconds due to keeping the performance loss low.
+	 */
+	private static synchronized void writeToFile(String line) {
+		if (!loggingEnabled || writer == null) {
+			return;
+		}
+
+		// Remove ANSI escape codes
+		String cleanLine = line.replaceAll("\u001B\\[[;\\d]*m", "");
+
+		writer.println(cleanLine);
+
+		long now = System.currentTimeMillis();
+		if (now - lastFlush > 2000) {
+			writer.flush();
+			lastFlush = now;
+		}
+	}
 }
