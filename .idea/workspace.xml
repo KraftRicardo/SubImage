@@ -9,11 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Added logger tests">
+    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Console now shows errors messages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/res/window/main_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/res/window/main_window.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/importer/SubImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/importer/SubImageObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImageObjects.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/save/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/save/Config.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -325,7 +327,7 @@
       <workItem from="1764003340335" duration="3000" />
       <workItem from="1764015843566" duration="146000" />
       <workItem from="1765377737362" duration="2280000" />
-      <workItem from="1765388131647" duration="3119000" />
+      <workItem from="1765388131647" duration="5275000" />
     </task>
     <task id="LOCAL-00001" summary="Made error handling more robust">
       <option name="closed" value="true" />
@@ -455,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765388691751</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Console now shows errors messages">
+      <option name="closed" value="true" />
+      <created>1765391937337</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1765391937337</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,6 +511,7 @@
     <MESSAGE value="Refactor to support cfg with tileWidth and tileHeight" />
     <MESSAGE value="Improved Logger and added its tests" />
     <MESSAGE value="Added logger tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added logger tests" />
+    <MESSAGE value="Console now shows errors messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Console now shows errors messages" />
   </component>
 </project>

@@ -23,10 +23,6 @@ public class SubImageObjects {
     private static Color backGroundColor2;
     private static Path targetDirectory;
 
-    private static boolean isCutRectanglesStyle = false;
-    private static int rectangleWidth = 64;
-    private static int rectangleHeight = 64;
-
     // cutStyle = true : name cuts after their position on the original image and create (original).png
     // nameAfterPixelPosition = false : name after pixel position in the original png and not (original).png
     // cutRectanglesStyle: if true cut not by composite but into rectangles of size defined in the function "cutIntoRectangles"
@@ -162,8 +158,8 @@ public class SubImageObjects {
 
     // if filterOutBackgroundColor == true, then the pixel [0,0] has the backgroundcolor
     public static void cutIntoRectangles(String pathToImage, boolean nameAfterPixelPosition) {
-        final int rectangleWidth = 512;
-        final int rectangleHeight = 256;
+        int rectangleWidth = SubImage.getCfg().getTileWidth();
+        int rectangleHeight = SubImage.getCfg().getTileHeight();
 
         BufferedImage image;
         try {

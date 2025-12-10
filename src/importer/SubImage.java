@@ -35,8 +35,12 @@ public class SubImage {
             for (final File f : cfg.getObjectFolder().listFiles((dir, name) -> name.endsWith(".png"))) {
                 String imagePath = f.getAbsolutePath();
                 Logger.info("Cutting: %s", imagePath);
-                // TODO make the last 2 parameters tracked by cfg
-                SubImageObjects.subImageObjects(imagePath, cfg.getFilterMode(), false, true);
+                SubImageObjects.subImageObjects(
+                        imagePath,
+                        cfg.getFilterMode(),
+                        cfg.isNameAfterPixelPosition(),
+                        cfg.isCutAsRectangle()
+                );
             }
         }
     }
@@ -47,8 +51,12 @@ public class SubImage {
             for (final File f : cfg.getAnimationFolder().listFiles((dir, name) -> name.endsWith(".png"))) {
                 String imagePath = f.getAbsolutePath();
                 Logger.info(imagePath);
-                // TODO make the last 2 parameters tracked by cfg
-                SubImageObjects.subImageObjects(imagePath, cfg.getFilterMode(), false, false);
+                SubImageObjects.subImageObjects(
+                        imagePath,
+                        cfg.getFilterMode(),
+                        cfg.isNameAfterPixelPosition(),
+                        cfg.isCutAsRectangle()
+                );
             }
         }
     }

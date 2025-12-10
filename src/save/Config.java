@@ -24,6 +24,9 @@ public class Config {
     @Setter private int filterMode; // TODO needs proper Setter
     @Setter private int waterTileSubImageHeight; // TODO needs proper Setter
 
+    @Setter private boolean nameAfterPixelPosition = true;
+    @Setter private boolean cutAsRectangle = true;
+
     public Config(String filePath) {
         readValuesFromJson(filePath);
         Logger.info("%s", this);
@@ -48,10 +51,14 @@ public class Config {
             objectFolder = new File(json.getString("objectFolder"));
             animationFolder = new File(json.getString("animationFolder"));
             waterTilesFolder = new File(json.getString("waterTilesFolder"));
+
             tileWidth = json.getInt("tileWidth");
             tileHeight = json.getInt("tileHeight");
             filterMode = json.getInt("filterMode");
             waterTileSubImageHeight = json.getInt("waterTileSubImageHeight");
+
+            nameAfterPixelPosition = json.getBoolean("nameAfterPixelPosition");
+            cutAsRectangle = json.getBoolean("cutAsRectangle");
 
             Logger.info("Configuration loaded successfully.");
         } catch (IOException | JSONException e) {
@@ -66,10 +73,14 @@ public class Config {
             json.put("objectFolder", objectFolder.getPath());
             json.put("animationFolder", animationFolder.getPath());
             json.put("waterTilesFolder", waterTilesFolder.getPath());
+
             json.put("tileWidth", tileWidth);
             json.put("tileHeight", tileHeight);
             json.put("filterMode", filterMode);
             json.put("waterTileSubImageHeight", waterTileSubImageHeight);
+
+            json.put("nameAfterPixelPosition", nameAfterPixelPosition);
+            json.put("cutAsRectangle", cutAsRectangle);
 
             try (FileWriter file = new FileWriter(filePath)) {
                 file.write(json.toString(4)); // Using 4 for pretty printing

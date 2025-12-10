@@ -3,12 +3,12 @@ package editor.windows;
 import importer.SubImage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import save.Config;
-import util.Logger;
 
 import java.io.File;
 
@@ -23,6 +23,13 @@ public class MainWindowController {
     @FXML public TextField tileHeight;
     @FXML public TextField filterMode;
     @FXML public TextField waterTileSubImageHeight;
+
+    public CheckBox checkBoxNameAfterPixelPosition;
+    public CheckBox checkBoxCutAsRectangles;
+
+    // TODO functions to call the to update the SubImage.getCfg().setAfterPixelPosition(checkBoxNameAfterPixelPosition);
+    // TODO and for checkBoxCutAsRectangles, also init them with cfg values at the start
+
 
     public void initialize() {
         tileWidth.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -61,6 +68,16 @@ public class MainWindowController {
             }
         });
         waterTileSubImageHeight.setText(String.valueOf(SubImage.getCfg().getWaterTileSubImageHeight()));
+
+        checkBoxNameAfterPixelPosition.setSelected(SubImage.getCfg().isNameAfterPixelPosition());
+        checkBoxCutAsRectangles.setSelected(SubImage.getCfg().isCutAsRectangle());
+
+        checkBoxNameAfterPixelPosition.selectedProperty().addListener((obs, oldVal, newVal) -> {
+            SubImage.getCfg().setNameAfterPixelPosition(newVal);
+        });
+        checkBoxCutAsRectangles.selectedProperty().addListener((obs, oldVal, newVal) -> {
+            SubImage.getCfg().setCutAsRectangle(newVal);
+        });
     }
 
     public void update() {
@@ -71,7 +88,6 @@ public class MainWindowController {
         animationsFolderPath.setText(cfg.getAnimationFolderPath());
         waterTilesFolderPath.setText(cfg.getWaterTilesFolderPath());
 
-        Logger.debug("msg" + cfg.getConsoleText());
         consoleLabel.setText(cfg.getConsoleText());
     }
 
@@ -138,6 +154,4 @@ public class MainWindowController {
         File selectedDirectory = directoryChooser.showDialog(stage);
         return selectedDirectory != null ? selectedDirectory.getAbsolutePath() : null;
     }
-
-
 }

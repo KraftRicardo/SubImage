@@ -3,8 +3,10 @@
     "animationFolder": "C:\\Users\\Ricardo\\Documents\\Pokemon Drawings\\SubImage\\animation",
     "filterMode": 0,
     "tileFolder": "C:\\Users\\Ricardo\\Documents\\Pokemon Drawings\\SubImage\\tiles",
-    "objectFolder": "C:\\Users\\Ricardo\\Documents\\Pokemon Drawings\\SubImage\\objects",
-    "tileWidth": 1,
-    "tileHeight": 1,
+    "nameAfterPixelPosition": false,
+    "cutAsRectangle": true,
+    "objectFolder": "C:\\Users\\kraft\\OneDrive\\Dokumente\\Pokemon Project Assets\\SubImage\\object-rectangle-18x18",
+    "tileWidth": 18,
+    "tileHeight": 18,
     "waterTileSubImageHeight": 0
 }
