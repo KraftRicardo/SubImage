@@ -71,20 +71,4 @@ public class SubImage {
     public static void saveConfig() {
         cfg.saveValuesInJson(CONFIG_FILE_PATH);
     }
-
-    public static int getFilterMode() {
-        return cfg.getFilterMode();
-    }
-
-    public static int getWaterTileSubImageHeight() {
-        return cfg.getWaterTileSubImageHeight();
-    }
-
-    public static void setFilterMode(int newMode) {
-        cfg.setFilterMode(newMode);
-    }
-
-    public static void setWaterTileSubImageHeight(int newHeight) {
-        cfg.setWaterTileSubImageHeight(newHeight);
-    }
 }

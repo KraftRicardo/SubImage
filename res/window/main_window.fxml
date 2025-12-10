@@ -248,15 +248,24 @@
    </VBox>
    <VBox>
       <children>
-         <Label text="Console">
-            <font>
-               <Font name="System Bold" size="14.0" />
-            </font>
-            <VBox.margin>
+         <HBox>
+            <children>
+               <Label prefHeight="29.0" prefWidth="53.0" text="Console">
+                  <font>
+                     <Font name="System Bold" size="14.0" />
+                  </font>
+               </Label>
+               <Button fx:id="clearConsoleButton" onAction="#clearConsoleTextField" text="Clear">
+                  <HBox.margin>
+                     <Insets left="5.0" />
+                  </HBox.margin>
+               </Button>
+            </children>
+            <padding>
                <Insets left="5.0" />
-            </VBox.margin>
-         </Label>
-         <Label alignment="TOP_LEFT" prefHeight="84.0" prefWidth="885.0" text="No erros yet" textFill="#da0000" wrapText="true">
+            </padding>
+         </HBox>
+         <Label fx:id="consoleLabel" alignment="TOP_LEFT" prefHeight="84.0" prefWidth="885.0" text="No erros yet" textFill="#da0000" wrapText="true">
             <VBox.margin>
                <Insets left="5.0" right="5.0" />
             </VBox.margin>

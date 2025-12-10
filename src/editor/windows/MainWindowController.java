@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import save.Config;
+import util.Logger;
 
 import java.io.File;
 
@@ -16,6 +17,7 @@ public class MainWindowController {
     @FXML public Label objectsFolderPath;
     @FXML public Label animationsFolderPath;
     @FXML public Label waterTilesFolderPath;
+    @FXML public Label consoleLabel;
 
     @FXML public TextField tileWidth;
     @FXML public TextField tileHeight;
@@ -37,11 +39,11 @@ public class MainWindowController {
                 int newHeight = Integer.parseInt(newValue);
                 SubImage.getCfg().setTileHeight(newHeight);
             } catch (NumberFormatException ignored) {
+
             }
         });
         tileHeight.setText(String.valueOf(SubImage.getCfg().getTileHeight()));
 
-        // Listen for changes in filterModeField
         filterMode.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 int newMode = Integer.parseInt(newValue);
@@ -51,7 +53,6 @@ public class MainWindowController {
         });
         filterMode.setText(String.valueOf(SubImage.getCfg().getFilterMode()));
 
-        // Listen for changes in waterTileSubImageHeight
         waterTileSubImageHeight.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 int newMode = Integer.parseInt(newValue);
@@ -69,6 +70,9 @@ public class MainWindowController {
         objectsFolderPath.setText(cfg.getObjectFolderPath());
         animationsFolderPath.setText(cfg.getAnimationFolderPath());
         waterTilesFolderPath.setText(cfg.getWaterTilesFolderPath());
+
+        Logger.debug("msg" + cfg.getConsoleText());
+        consoleLabel.setText(cfg.getConsoleText());
     }
 
     public void setTilesFolder(ActionEvent actionEvent) {
@@ -103,6 +107,10 @@ public class MainWindowController {
         }
     }
 
+    public void clearConsoleTextField(ActionEvent actionEvent) {
+        consoleLabel.setText("");
+    }
+
     public void cutAll(ActionEvent actionEvent) {
         SubImage.cutAll();
     }
@@ -126,8 +134,10 @@ public class MainWindowController {
     String selectFolderAndSetPath() {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Select Folder");
-        Stage stage = (Stage) tilesFolderPath.getScene().getWindow();  // Assuming tilesFolderPath is in the same window
+        Stage stage = (Stage) tilesFolderPath.getScene().getWindow(); // Assuming tilesFolderPath is in the same window
         File selectedDirectory = directoryChooser.showDialog(stage);
         return selectedDirectory != null ? selectedDirectory.getAbsolutePath() : null;
     }
+
+
 }

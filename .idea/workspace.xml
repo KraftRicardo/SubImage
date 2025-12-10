@@ -9,10 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Refactor to support cfg with tileWidth and tileHeight">
+    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Added logger tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/window/main_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/res/window/main_window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/importer/SubImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/save/Config.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +91,7 @@
     "JAR Application.RUN_ARTIFACT.executor": "Run",
     "JAR Application.RUN_SHADOW.executor": "Run",
     "JAR Application.Unnamed.executor": "Run",
+    "JUnit.LoggerTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
@@ -125,7 +128,7 @@
       <recent name="logging" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoggerTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="SubImage.main" />
@@ -240,8 +243,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoggerTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.LoggerTest" />
         <item itemvalue="Gradle.SubImage [shadowJar]" />
         <item itemvalue="Gradle.SubImage [wrapperUpdate]" />
         <item itemvalue="Gradle.SubImage [wrapper]" />
@@ -322,7 +325,7 @@
       <workItem from="1764003340335" duration="3000" />
       <workItem from="1764015843566" duration="146000" />
       <workItem from="1765377737362" duration="2280000" />
-      <workItem from="1765388131647" duration="307000" />
+      <workItem from="1765388131647" duration="3119000" />
     </task>
     <task id="LOCAL-00001" summary="Made error handling more robust">
       <option name="closed" value="true" />
@@ -436,7 +439,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765379888740</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Improved Logger and added its tests">
+      <option name="closed" value="true" />
+      <created>1765388492777</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1765388492777</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added logger tests">
+      <option name="closed" value="true" />
+      <created>1765388691751</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1765388691751</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,6 +499,8 @@
     <MESSAGE value="Added logic to cut WaterTiles" />
     <MESSAGE value="Added missing files" />
     <MESSAGE value="Refactor to support cfg with tileWidth and tileHeight" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor to support cfg with tileWidth and tileHeight" />
+    <MESSAGE value="Improved Logger and added its tests" />
+    <MESSAGE value="Added logger tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added logger tests" />
   </component>
 </project>

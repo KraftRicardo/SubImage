@@ -17,6 +17,8 @@ public class Config {
     private File animationFolder;
     private File waterTilesFolder;
 
+    private String consoleText = "All good.";
+
     private int tileWidth = DEFAULT_TILE_SIZE;
     private int tileHeight = DEFAULT_TILE_SIZE;
     @Setter private int filterMode; // TODO needs proper Setter
@@ -102,7 +104,7 @@ public class Config {
             tileFolder = new File(path);
             Logger.info("Tile folder set to: " + path);
         } catch (Exception e) {
-            Logger.error("Error setting tile folder to: " + path);
+            setConsoleText("Error setting tile folder to: " + path);
         }
     }
 
@@ -111,7 +113,7 @@ public class Config {
             objectFolder = new File(path);
             Logger.info("Object folder set to: " + path);
         } catch (Exception e) {
-            Logger.error("Error setting object folder to: " + path);
+            setConsoleText("Error setting object folder to: " + path);
         }
     }
 
@@ -120,7 +122,7 @@ public class Config {
             animationFolder = new File(path);
             Logger.info("Animation folder set to: " + path);
         } catch (Exception e) {
-            Logger.error("Error setting animation folder to: " + path);
+            setConsoleText("Error setting animation folder to: " + path);
         }
     }
 
@@ -129,7 +131,7 @@ public class Config {
             waterTilesFolder = new File(path);
             Logger.info("WaterTilesFolder folder set to: " + path);
         } catch (Exception e) {
-            Logger.error("Error setting water-tiles folder to: " + path);
+            setConsoleText("Error setting water-tiles folder to: " + path);
         }
     }
 
@@ -144,7 +146,7 @@ public class Config {
 
     public void setTileHeight(int tileHeight) {
         if (tileHeight < 1) {
-            Logger.warning("Bad input for tile height");
+            setConsoleText("Bad input for tile height");
             return;
         }
 
@@ -159,5 +161,10 @@ public class Config {
                 ", animationFolder='" + animationFolder.getPath() + '\'' +
                 ", filterMode=" + filterMode +
                 '}';
+    }
+
+    private void setConsoleText(String message){
+        Logger.error(message);
+        consoleText = message;
     }
 }
