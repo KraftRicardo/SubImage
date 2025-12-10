@@ -1,14 +1,15 @@
 package importer;
 
+import lombok.Getter;
 import save.Config;
 import util.Logger;
 
 import java.io.*;
 
 public class SubImage {
-    static final String CONFIG_FILE_PATH = "data/config.json";
+    private static final String CONFIG_FILE_PATH = "data/config.json";
 
-    static Config cfg;
+    @Getter private static Config cfg;
 
     public static void cutAll() {
         cutTiles();
@@ -63,24 +64,27 @@ public class SubImage {
         }
     }
 
-    public static void init() {cfg = new Config(CONFIG_FILE_PATH);}
-    public static void saveConfig() {cfg.saveValuesInJson(CONFIG_FILE_PATH);}
-
-    public static String getTileFolderPath() {return cfg.getTileFolder().getPath();}
-    public static String getObjectFolderPath() {
-        return cfg.getObjectFolder().getPath();
+    public static void init() {
+        cfg = new Config(CONFIG_FILE_PATH);
     }
-    public static String getAnimationFolderPath() {return cfg.getAnimationFolder().getPath();}
-    public static String getWaterTilesFolderPath() {return cfg.getWaterTilesFolder().getPath();}
-    public static int getTileSize() {return cfg.getTileSize();}
-    public static int getFilterMode() {return cfg.getFilterMode();}
-    public static int getWaterTileSubImageHeight() {return cfg.getWaterTileSubImageHeight();}
 
-    public static void setTileFolderPath(String path) {cfg.setTileFolder(path);}
-    public static void setObjectFolderPath(String path) {cfg.setObjectFolder(path);}
-    public static void setAnimationFolderPath(String path) {cfg.setAnimationFolder(path);}
-    public static void setWaterTilesFolderPath(String path) {cfg.setWaterTilesFolder(path);}
-    public static void setTileSize(int newSize) {cfg.setTileSize(newSize);}
-    public static void setFilterMode(int newMode) {cfg.setFilterMode(newMode);}
-    public static void setWaterTileSubImageHeight(int newHeight) {cfg.setWaterTileSubImageHeight(newHeight);}
+    public static void saveConfig() {
+        cfg.saveValuesInJson(CONFIG_FILE_PATH);
+    }
+
+    public static int getFilterMode() {
+        return cfg.getFilterMode();
+    }
+
+    public static int getWaterTileSubImageHeight() {
+        return cfg.getWaterTileSubImageHeight();
+    }
+
+    public static void setFilterMode(int newMode) {
+        cfg.setFilterMode(newMode);
+    }
+
+    public static void setWaterTileSubImageHeight(int newHeight) {
+        cfg.setWaterTileSubImageHeight(newHeight);
+    }
 }

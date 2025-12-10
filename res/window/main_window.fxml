@@ -175,13 +175,34 @@
                   <tooltip>
                      <Tooltip text="Define the size of the tile squares. If the input image is not divisable by that number the cutting will no succeed." />
                   </tooltip></Label>
-               <TextField fx:id="tileSize" prefHeight="25.0" prefWidth="50.0" promptText="16">
+               <Label prefHeight="25.0" prefWidth="42.0" text="Width">
+                  <tooltip>
+                     <Tooltip text="Define the size of the tile squares. If the input image is not divisable by that number the cutting will no succeed." />
+                  </tooltip>
+               </Label>
+               <TextField fx:id="tileWidth" prefHeight="25.0" prefWidth="50.0" promptText="16">
                   <padding>
                      <Insets left="5.0" />
                   </padding>
                   <opaqueInsets>
                      <Insets />
                   </opaqueInsets></TextField>
+               <Label prefHeight="25.0" prefWidth="42.0" text="Height">
+                  <tooltip>
+                     <Tooltip text="Define the size of the tile squares. If the input image is not divisable by that number the cutting will no succeed." />
+                  </tooltip>
+                  <HBox.margin>
+                     <Insets left="5.0" />
+                  </HBox.margin>
+               </Label>
+               <TextField fx:id="tileHeight" prefHeight="25.0" prefWidth="50.0" promptText="16">
+                  <padding>
+                     <Insets left="5.0" />
+                  </padding>
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
+               </TextField>
             </children>
             <VBox.margin>
                <Insets left="5.0" />

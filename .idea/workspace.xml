@@ -9,19 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Added logic to cut WaterTiles">
-      <change afterPath="$PROJECT_DIR$/res/README_figures/example-result.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="e3cedad2-1846-403a-8a0b-7ba338efc894" name="Changes" comment="Added missing files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/README_figures/example.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/input/objects/Status_all.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editor/EditorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/EditorManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/ImporterStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/ImporterStatic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/Indexing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/Indexing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/window/main_window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/res/window/main_window.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editor/windows/MainWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/importer/SubImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/importer/SubImageObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImageObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/importer/SubImageTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/importer/SubImageTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/save/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/save/Config.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,35 +79,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EditorManager.executor": "Run",
-    "Application.Main (1).executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.SubImage.executor": "Run",
-    "Gradle.SubImage [build].executor": "Run",
-    "Gradle.SubImage [shadowJar].executor": "Run",
-    "Gradle.SubImage [wrapperUpdate].executor": "Run",
-    "Gradle.SubImage [wrapper].executor": "Run",
-    "JAR Application.RUN_ARTIFACT.executor": "Run",
-    "JAR Application.RUN_SHADOW.executor": "Run",
-    "JAR Application.Unnamed.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/kraft/IdeaProjects/SubImage/res/README_figures",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.1150748",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EditorManager.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SubImage.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SubImage [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SubImage [shadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SubImage [wrapperUpdate].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SubImage [wrapper].executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.RUN_ARTIFACT.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.RUN_SHADOW.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kraft/IdeaProjects/SubImage/res/README_figures&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\kraft\IdeaProjects\SubImage\res\README_figures" />
@@ -334,6 +328,10 @@
       <workItem from="1759859110333" duration="46000" />
       <workItem from="1759948960793" duration="519000" />
       <workItem from="1762508134673" duration="782000" />
+      <workItem from="1763154215814" duration="20000" />
+      <workItem from="1764003340335" duration="3000" />
+      <workItem from="1764015843566" duration="146000" />
+      <workItem from="1765377737362" duration="2071000" />
     </task>
     <task id="LOCAL-00001" summary="Made error handling more robust">
       <option name="closed" value="true" />
@@ -431,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727821893356</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added missing files">
+      <option name="closed" value="true" />
+      <created>1762509283135</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1762509283135</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,6 +479,7 @@
     <MESSAGE value="Fixed object cutting" />
     <MESSAGE value="Fixed object cutting 2" />
     <MESSAGE value="Added logic to cut WaterTiles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added logic to cut WaterTiles" />
+    <MESSAGE value="Added missing files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added missing files" />
   </component>
 </project>

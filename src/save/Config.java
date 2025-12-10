@@ -10,17 +10,21 @@ import java.io.*;
 
 @Getter
 public class Config {
-    File tileFolder;
-    File objectFolder;
-    File animationFolder;
-    File waterTilesFolder;
-    @Setter int tileSize;
-    @Setter int filterMode;
-    @Setter int waterTileSubImageHeight;
+    private static final int DEFAULT_TILE_SIZE = 16;
 
-    public Config(String filePath){
+    private File tileFolder;
+    private File objectFolder;
+    private File animationFolder;
+    private File waterTilesFolder;
+
+    private int tileWidth = DEFAULT_TILE_SIZE;
+    private int tileHeight = DEFAULT_TILE_SIZE;
+    @Setter private int filterMode; // TODO needs proper Setter
+    @Setter private int waterTileSubImageHeight; // TODO needs proper Setter
+
+    public Config(String filePath) {
         readValuesFromJson(filePath);
-        Logger.info("%s",this);
+        Logger.info("%s", this);
     }
 
     public void readValuesFromJson(String filePath) {
@@ -42,7 +46,8 @@ public class Config {
             objectFolder = new File(json.getString("objectFolder"));
             animationFolder = new File(json.getString("animationFolder"));
             waterTilesFolder = new File(json.getString("waterTilesFolder"));
-            tileSize = json.getInt("tileSize");
+            tileWidth = json.getInt("tileWidth");
+            tileHeight = json.getInt("tileHeight");
             filterMode = json.getInt("filterMode");
             waterTileSubImageHeight = json.getInt("waterTileSubImageHeight");
 
@@ -59,7 +64,8 @@ public class Config {
             json.put("objectFolder", objectFolder.getPath());
             json.put("animationFolder", animationFolder.getPath());
             json.put("waterTilesFolder", waterTilesFolder.getPath());
-            json.put("tileSize", tileSize);
+            json.put("tileWidth", tileWidth);
+            json.put("tileHeight", tileHeight);
             json.put("filterMode", filterMode);
             json.put("waterTileSubImageHeight", waterTileSubImageHeight);
 
@@ -75,7 +81,23 @@ public class Config {
         }
     }
 
-    public void setTileFolder(String path) {
+    public String getTileFolderPath() {
+        return tileFolder.getPath();
+    }
+
+    public String getObjectFolderPath() {
+        return objectFolder.getPath();
+    }
+
+    public String getAnimationFolderPath() {
+        return animationFolder.getPath();
+    }
+
+    public String getWaterTilesFolderPath() {
+        return waterTilesFolder.getPath();
+    }
+
+    public void setTileFolderPath(String path) {
         try {
             tileFolder = new File(path);
             Logger.info("Tile folder set to: " + path);
@@ -84,7 +106,7 @@ public class Config {
         }
     }
 
-    public void setObjectFolder(String path) {
+    public void setObjectFolderPath(String path) {
         try {
             objectFolder = new File(path);
             Logger.info("Object folder set to: " + path);
@@ -93,7 +115,7 @@ public class Config {
         }
     }
 
-    public void setAnimationFolder(String path) {
+    public void setAnimationFolderPath(String path) {
         try {
             animationFolder = new File(path);
             Logger.info("Animation folder set to: " + path);
@@ -102,7 +124,7 @@ public class Config {
         }
     }
 
-    public void setWaterTilesFolder(String path) {
+    public void setWaterTilesFolderPath(String path) {
         try {
             waterTilesFolder = new File(path);
             Logger.info("WaterTilesFolder folder set to: " + path);
@@ -111,13 +133,30 @@ public class Config {
         }
     }
 
+    public void setTileWidth(int tileWidth) {
+        if (tileWidth < 1) {
+            Logger.warning("Bad input for tile width");
+            return;
+        }
+
+        this.tileWidth = tileWidth;
+    }
+
+    public void setTileHeight(int tileHeight) {
+        if (tileHeight < 1) {
+            Logger.warning("Bad input for tile height");
+            return;
+        }
+
+        this.tileHeight = tileHeight;
+    }
+
     @Override
     public String toString() {
         return "Config{" +
                 "tileFolder='" + tileFolder.getPath() + '\'' +
                 ", objectFolder='" + objectFolder.getPath() + '\'' +
                 ", animationFolder='" + animationFolder.getPath() + '\'' +
-                ", tileSize=" + tileSize +
                 ", filterMode=" + filterMode +
                 '}';
     }

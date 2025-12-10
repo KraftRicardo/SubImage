@@ -7,62 +7,74 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import save.Config;
 
 import java.io.File;
 
 public class MainWindowController {
-    @FXML Label tilesFolderPath;
-    @FXML Label objectsFolderPath;
-    @FXML Label animationsFolderPath;
-    @FXML Label waterTilesFolderPath;
+    @FXML public Label tilesFolderPath;
+    @FXML public Label objectsFolderPath;
+    @FXML public Label animationsFolderPath;
+    @FXML public Label waterTilesFolderPath;
 
-    @FXML TextField tileSize;
-    @FXML TextField filterMode;
-    @FXML TextField waterTileSubImageHeight;
+    @FXML public TextField tileWidth;
+    @FXML public TextField tileHeight;
+    @FXML public TextField filterMode;
+    @FXML public TextField waterTileSubImageHeight;
 
     public void initialize() {
-        // Listen for changes in tileSizeField
-        tileSize.textProperty().addListener((observable, oldValue, newValue) -> {
+        tileWidth.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
-                int newSize = Integer.parseInt(newValue);
-                SubImage.setTileSize(newSize);
+                int newWidth = Integer.parseInt(newValue);
+                SubImage.getCfg().setTileWidth(newWidth);
             } catch (NumberFormatException ignored) {
             }
         });
-        tileSize.setText(String.valueOf(SubImage.getTileSize()));
+        tileWidth.setText(String.valueOf(SubImage.getCfg().getTileWidth()));
+
+        tileHeight.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                int newHeight = Integer.parseInt(newValue);
+                SubImage.getCfg().setTileHeight(newHeight);
+            } catch (NumberFormatException ignored) {
+            }
+        });
+        tileHeight.setText(String.valueOf(SubImage.getCfg().getTileHeight()));
 
         // Listen for changes in filterModeField
         filterMode.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 int newMode = Integer.parseInt(newValue);
-                SubImage.setFilterMode(newMode);
+                SubImage.getCfg().setFilterMode(newMode);
             } catch (NumberFormatException ignored) {
             }
         });
-        filterMode.setText(String.valueOf(SubImage.getFilterMode()));
+        filterMode.setText(String.valueOf(SubImage.getCfg().getFilterMode()));
 
         // Listen for changes in waterTileSubImageHeight
         waterTileSubImageHeight.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 int newMode = Integer.parseInt(newValue);
-                SubImage.setWaterTileSubImageHeight(newMode);
+                SubImage.getCfg().setWaterTileSubImageHeight(newMode);
             } catch (NumberFormatException ignored) {
             }
         });
-        waterTileSubImageHeight.setText(String.valueOf(SubImage.getWaterTileSubImageHeight()));
+        waterTileSubImageHeight.setText(String.valueOf(SubImage.getCfg().getWaterTileSubImageHeight()));
     }
 
     public void update() {
-        tilesFolderPath.setText(SubImage.getTileFolderPath());
-        objectsFolderPath.setText(SubImage.getObjectFolderPath());
-        animationsFolderPath.setText(SubImage.getAnimationFolderPath());
-        waterTilesFolderPath.setText(SubImage.getWaterTilesFolderPath());
+        Config cfg = SubImage.getCfg();
+
+        tilesFolderPath.setText(cfg.getTileFolderPath());
+        objectsFolderPath.setText(cfg.getObjectFolderPath());
+        animationsFolderPath.setText(cfg.getAnimationFolderPath());
+        waterTilesFolderPath.setText(cfg.getWaterTilesFolderPath());
     }
 
     public void setTilesFolder(ActionEvent actionEvent) {
         String path = selectFolderAndSetPath();
         if (path != null) {
-            SubImage.setTileFolderPath(path);
+            SubImage.getCfg().setTileFolderPath(path);
             update();
         }
     }
@@ -70,7 +82,7 @@ public class MainWindowController {
     public void setObjectsFolder(ActionEvent actionEvent) {
         String path = selectFolderAndSetPath();
         if (path != null) {
-            SubImage.setObjectFolderPath(path);
+            SubImage.getCfg().setObjectFolderPath(path);
             update();
         }
     }
@@ -78,7 +90,7 @@ public class MainWindowController {
     public void setAnimationsFolder(ActionEvent actionEvent) {
         String path = selectFolderAndSetPath();
         if (path != null) {
-            SubImage.setAnimationFolderPath(path);
+            SubImage.getCfg().setAnimationFolderPath(path);
             update();
         }
     }
@@ -86,21 +98,27 @@ public class MainWindowController {
     public void setWaterTilesFolder(ActionEvent actionEvent) {
         String path = selectFolderAndSetPath();
         if (path != null) {
-            SubImage.setWaterTilesFolderPath(path);
+            SubImage.getCfg().setWaterTilesFolderPath(path);
             update();
         }
     }
 
-    public void cutAll(ActionEvent actionEvent) {SubImage.cutAll();}
+    public void cutAll(ActionEvent actionEvent) {
+        SubImage.cutAll();
+    }
+
     public void cutTiles(ActionEvent actionEvent) {
         SubImage.cutTiles();
     }
+
     public void cutObjects(ActionEvent actionEvent) {
         SubImage.cutObjects();
     }
+
     public void cutAnimations(ActionEvent actionEvent) {
         SubImage.cutAnimations();
     }
+
     public void cutWaterTiles(ActionEvent actionEvent) {
         SubImage.cutWaterTiles();
     }

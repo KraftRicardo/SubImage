@@ -33,7 +33,8 @@ public class SubImageTiles {
             Logger.error("Fail @ reading the image PATH : %s", pathToImage);
             return false;
         }
-        if(image.getWidth() % SubImage.getTileSize() != 0 || image.getHeight() % SubImage.getTileSize() != 0){
+
+        if(image.getWidth() % SubImage.getCfg().getTileWidth() != 0 || image.getHeight() % SubImage.getCfg().getTileHeight() != 0){
             Logger.error("Fail @%s image size not dividable by tile size WIDTH : %d, HEIGHT : %d",
                     pathToImage, image.getWidth(), image.getHeight());
             return false;
@@ -57,15 +58,18 @@ public class SubImageTiles {
     }
 
     private static void cut() {
-        for(int y = 0; y < image.getHeight(); y = y + SubImage.getTileSize()) {
-            for (int x = 0; x < image.getWidth(); x = x + SubImage.getTileSize()) {
+        int tileWidth = SubImage.getCfg().getTileWidth();
+        int tileHeight = SubImage.getCfg().getTileHeight();
 
-                if (isTileEmpty(x, y, SubImage.getTileSize(), SubImage.getTileSize())) {
+        for(int y = 0; y < image.getHeight(); y = y + tileHeight) {
+            for (int x = 0; x < image.getWidth(); x = x + tileWidth) {
+
+                if (isTileEmpty(x, y, tileWidth, tileHeight)) {
                     continue;
                 }
 
                 //save tile in new image
-                BufferedImage newImage = new BufferedImage(SubImage.getTileSize(), SubImage.getTileSize(), BufferedImage.TYPE_INT_ARGB);
+                BufferedImage newImage = new BufferedImage(tileWidth, tileHeight, BufferedImage.TYPE_INT_ARGB);
                 for (int newX = 0; newX < newImage.getWidth(); newX++) {
                     for (int newY = 0; newY < newImage.getHeight(); newY++) {
                         newImage.setRGB(newX, newY, image.getRGB(x + newX, y + newY));
@@ -93,9 +97,12 @@ public class SubImageTiles {
     }
 
     private static int calcPos(int x, int y, int width) {
+        int tileWidth = SubImage.getCfg().getTileWidth();
+        int tileHeight = SubImage.getCfg().getTileHeight();
+
         int pos = 0;
-        pos += (x / SubImage.getTileSize());
-        pos += (y / SubImage.getTileSize()) * (width / SubImage.getTileSize());
+        pos += (x / tileWidth);
+        pos += (y / tileHeight) * (width / tileWidth);
         return pos;
     }
 
